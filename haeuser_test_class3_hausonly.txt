@@ -1,0 +1,6118 @@
+;==============================================;
+  IDBODEN =   20101
+  IDWALD =    20201
+  IDMIL =     20301
+  IDROAD =    20401
+  IDHANDW =   20501
+  IDWOHN =    20601
+  IDHANDEL =  20701
+  IDDIVERS =  20801
+  IDFLUSS  =  20901
+  IDSTRAND =  21001
+  IDFELS =    21101
+  IDMEER =    21201
+  IDROHST =   21301
+  IDMILHOLZ = 21401
+  IDFARM    = 21501
+  IDBRUECKE = 21601
+  IDSTEPPE =  21701
+  IDLAGER =   21801
+  IDBRUNNEN = 21901
+  IDFORST  =  22001
+  IDHAFEN =   22101
+  IDNEGER =   22201
+  IDHANG =    22301
+  IDMINE =    22401
+  IDMAUER =   22501
+	IDRUINE =   22601
+	IDWEIDE =   22701
+  IDPALMEN =  22801
+  IDSOLDAT =	29901
+
+  GFXBODEN   = 0
+  GFXHANG    = GFXBODEN+432
+  GFXROHST   = GFXHANG+152
+  GFXMEER    = GFXROHST+96
+	GFXINSEL	 = GFXMEER+372
+  GFXSTRAND  = GFXINSEL+40
+  GFXROAD    = GFXSTRAND+168
+  GFXPIER    = GFXROAD+56
+  GFXMAUER   = GFXPIER+8
+  GFXTOR     = GFXMAUER+96
+  GFXWALD    = GFXTOR+24
+  GFXFLUSS   = GFXWALD+132
+  GFXMUEHL   = GFXFLUSS+264
+  GFXMINE    = GFXMUEHL+448
+  GFXFARM    = GFXMINE+200
+  GFXBRUNN   = GFXFARM+272
+  GFXMEDI    = GFXBRUNN+96
+  GFXWOHN    = GFXMEDI+16
+  GFXNEGER   = GFXWOHN+544
+  GFXHANDW   = GFXNEGER+344
+  GFXLAGER   = GFXHANDW+644
+  GFXKONTOR  = GFXLAGER+8
+  GFXMARKT   = GFXKONTOR+240
+  GFXWERFT   = GFXMARKT+240
+  GFXKIRCH   = GFXWERFT+100
+  GFXTHEAT   = GFXKIRCH+152
+  GFXSCHLOSS = GFXTHEAT+36
+  GFXSCHULE  = GFXSCHLOSS+140
+	GFXGALGEN  = GFXSCHULE+52
+  GFXEXTRA	 = GFXGALGEN+24
+	GFXBURG    = GFXEXTRA+4
+  GFXFELS    = GFXBURG+152
+
+  BGFXMILMAUER  = 0
+  BGFXMILBURG   = BGFXMILMAUER+48
+  BGFXHANDW     = BGFXMILBURG+12
+  BGFXMINE      = BGFXHANDW+56
+  BGFXFARM      = BGFXMINE+16
+  BGFXFELDER    = BGFXFARM+80
+  BGFXWOHN      = BGFXFELDER+20
+  BGFXHAFEN     = BGFXWOHN+20
+  BGFXROAD      = BGFXHAFEN+36
+  BGFXDIVERS    = BGFXROAD+56
+  BGFXMEER      = BGFXDIVERS+56
+  BGFXBRAND     = BGFXMEER+15
+  BGFXSTRAND    = BGFXBRAND+24
+  BGFXFELS      = BGFXSTRAND+188
+  BGFXHANG      = BGFXFELS+32
+  BGFXFLUSS     = BGFXHANG+124
+  BGFXDIVSCP    = BGFXFLUSS+20
+
+  Nahrung:    1.3            ; Verbrauch je 100 Einwohner !!
+
+;================================================;
+;         Welche Kostengruppen gibt es ?? 
+;================================================;
+  
+  KOST_NIX =            0
+  KOST_WENIG =          5
+  KOST_BEDARF_1 =       10
+  KOST_BEDARF_2 =       15
+  KOST_BEDARF_3 =       20
+  KOST_PLANTAGE_1 =     25
+  KOST_PLANTAGE_2 =     35
+  KOST_ERHOEHT =        25
+  KOST_SPEZIAL =        45
+  KOST_ERZBAU  =        60
+
+  KOST_WENIG_SLP =      0
+  KOST_BEDARF_1_SLP =   5
+  KOST_BEDARF_2_SLP =   7
+  KOST_BEDARF_3_SLP =   10
+  KOST_PLANTAGE_1_SLP = 10
+  KOST_PLANTAGE_2_SLP = 15
+  KOST_ERHOEHT_SLP =    10
+  KOST_SPEZIAL_SLP =    20
+  KOST_ERZBAU_SLP =     20
+
+  KOST_KONTOR_1     =   15
+  
+  KOST_WAFFE_1 =        30
+  KOST_WAFFE_1_SLP =    14
+  KOST_WAFFE_2 =        45
+  KOST_WAFFE_2_SLP =    20
+  KOST_WAFFE_3 =        60
+  KOST_WAFFE_3_SLP =    25
+
+  KOST_WERFT_1 =        100
+  KOST_WERFT_1_SLP =    20
+  KOST_WERFT_2 =        150
+  KOST_WERFT_2_SLP =    30
+
+  KOST_BURG_1 =         55
+  KOST_BURG_2 =         90
+  KOST_BURG_3 =         130
+  KOST_BURG_1_SLP =     15
+  KOST_BURG_2_SLP =     25
+  KOST_BURG_3_SLP =     40
+
+  KOST_KAPELLE =        5
+  KOST_WIRT =           15
+  KOST_ARZT =           30
+  KOST_SCHULE =         30
+  KOST_KIRCHE =         50
+  KOST_BADE =           60
+  KOST_THEATER =        80
+  KOST_HOCHSCHULE =     60
+  KOST_KATHETRALE =     90
+  KOST_GALGEN =         20
+  KOST_BRUNNEN =        15
+  KOST_SCHLOSS =        40
+
+;================================================;
+;       BESONDERE INFRASTRUKTUR MARKPUNKTE
+;================================================;
+
+  INFRA_BURG_1      =   INFRA_STUFE_2G
+  INFRA_BURG_2      =   INFRA_STUFE_4B
+  INFRA_BURG_3      =   INFRA_STUFE_5B
+  INFRA_WACHTURM    =   INFRA_STUFE_2G
+  INFRA_MUSKETE     =   INFRA_STUFE_4B
+  INFRA_KONTOR_1    =   INFRA_STUFE_2B
+  INFRA_KONTOR_2    =   INFRA_STUFE_3A
+  INFRA_KONTOR_3    =   INFRA_STUFE_4A
+  INFRA_KANON       =   INFRA_STUFE_3E
+
+
+
+Nummer = 0
+
+;================================================;
+;         HAEUSER-BESCHREIBUNGEN
+;================================================;
+
+  Objekt: HAUS
+
+    HIGHBODEN  = 20
+    HIGHMEER   = 0
+
+  ;---Default-Werte festlegen---;
+    @Nummer:    0
+    Id:         0
+    Gfx:        0
+    Blocknr:    0
+    Kind:       UNUSED
+    Posoffs:    HIGHBODEN
+    Wegspeed:   120, 120, 120, 100
+    Highflg:    1
+    Einhoffs:		2.0
+    Bausample:	WAV_STANDARD
+		Ruinenr:		RUINE_STEIN
+    Maxenergy:  20
+    Maxbrand:   4
+		Size:       1, 1
+    Rotate:     1
+    RandAnz:    1
+    RandAdd:    0
+    AnimTime:   TIMENEVER
+    AnimFrame:  0
+    AnimAdd:    0
+    Objekt:     HAUS_PRODTYP
+      Kind:        UNUSED
+      Ware:        NOWARE
+      Radius:      0
+      Rohmenge:    1
+      Prodmenge:   1
+      Randwachs:	 100
+			Maxlager:    4
+			Maxprodcnt:	 MAXPRODCNT
+			Maxnorohst:  5
+    EndObj;
+    ObjFill:    0,MAXHAUS ;1F4h = 500
+
+
+;==============================================;
+;   AB HIER GEHTS MIT DEN HAEUSERN LOS !!      ;
+;==============================================;
+
+  ;---Leer-Zeichen---;
+    @Nummer:    0
+    Id:         0
+    Gfx:        GFXBODEN
+    Kind:       BODEN
+    Size:       1, 1
+    Highflg:    0
+    Rotate:     0
+
+;=============WEIDE- UND WUESTENFLAECHEN========;
+
+  ;---Rohstoffe-Weideland (1)---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDWEIDE+0
+    Gfx:        GFXBODEN+4     ; Boden_01
+    Baugfx:     BGFXFELDER
+    Kind:       BODEN
+    Highflg:    0
+    Wegspeed:   145, 120, 170, 100
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    AnimAnz:    1
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   300
+    EndObj;
+
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +40
+    Kind:       BODEN
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       GRAS
+      Rohstoff:   NOWARE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+  ;---Weideland(2)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland(3)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland(4)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (11)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    HAUSWACHS = Nummer
+    Id:         IDWEIDE+20
+    Gfx:        GFXBODEN+80     ; Boden_02
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (12)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (13)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (14)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (15)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (16)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (17)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (18)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (19)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (20)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (21)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    HAUSWACHS = Nummer
+    Id:         IDWEIDE+40
+    Gfx:        GFXBODEN+160     ; Boden_03
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    HAUSFERT  = Nummer
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (22)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (23)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (24)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (25)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland (26)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen (1)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    HAUSWACHS = Nummer
+    Randwachs:	25
+    Id:         IDWEIDE+60
+    Gfx:        GFXBODEN+240     ; Wueste_01
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    HAUSFERT =  Nummer
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(2)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(3)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(4)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(5)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(6)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(7)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(8)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(9)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(10)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen (11)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    HAUSWACHS = Nummer
+    Randwachs:	75
+    Id:         IDWEIDE+80
+    Gfx:        GFXBODEN+320     ; Wueste_02
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	75
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(12)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	75
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	75
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(13)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(14)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(15)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(16)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	50
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(17)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(18)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	40
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	40
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(19)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Wüstenzeichen(20)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Randwachs:	25
+    @Id:        +1
+    @Gfx:       +40
+
+;===============ROHSTOFFZEICHEN================;
+
+  ;---Rohstoffe-Weizen---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+0
+    Gfx:        GFXROHST+0
+    Baugfx:     BGFXFELDER+10
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    Highflg:    0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+			Bauinfra:		INFRA_STUFE_2D
+      Interval:   175
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    Highflg:    0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       GETREIDE
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+70
+    Gfx:        GFXROHST+48
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Baumwolle---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+30
+    Gfx:        GFXROHST+6
+    Baugfx:     BGFXFELDER+11
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    Highflg:    0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+			Bauinfra:		INFRA_STUFE_3C
+      Interval:   330
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Highflg:    0
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       BAUMWOLLE
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+72
+    Gfx:        GFXROHST+54
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Tabak---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+34
+    Gfx:        GFXROHST+18
+    Baugfx:     BGFXFELDER+13
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   330
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       TABAKBAUM
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+74
+    Gfx:        GFXROHST+66
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Kakao---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+36
+    Gfx:        GFXROHST+24
+    Baugfx:     BGFXFELDER+14
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+			Bauinfra:		INFRA_STUFE_3C
+      Interval:   330
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       KAKAOBAUM
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+76
+    Gfx:        GFXROHST+72
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Zuckerrohr---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+38
+    Gfx:        GFXROHST+30
+    Baugfx:     BGFXFELDER+15
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   300
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       ZUCKERROHR
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+78
+    Gfx:        GFXROHST+78
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Gewürze---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+40
+    Gfx:        GFXROHST+36
+    Baugfx:     BGFXFELDER+16
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   330
+			Bauinfra:		INFRA_STUFE_2C
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       GEWUERZBAUM
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+80
+    Gfx:        GFXROHST+84
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Weintrauben---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+42
+    Gfx:        GFXROHST+42
+    Baugfx:     BGFXFELDER+17
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   330
+			Bauinfra:		INFRA_STUFE_2C
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +5
+    Kind:       WALD
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		0.8
+    Maxenergy:  5
+   	Ruinenr:		RUINE_FELD
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       WEINTRAUBEN
+      Rohstoff:   NOWARE
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDROHST+82
+    Gfx:        GFXROHST+90
+    Objekt:     HAUS_PRODTYP
+      Doerrflg:   1
+    EndObj;    
+
+  ;---Rohstoffe-Wald (1)---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDROHST+2
+    Gfx:        GFXWALD+0
+    Baugfx:     BGFXFELDER+18
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    NoShotFlg:  1
+    Wegspeed:   145, 120, 170, 100
+    Maxenergy:  3
+   	Ruinenr:		RUINE_FELD
+    RandAnz:    11
+    RandAdd:    2
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   900
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +5
+    @Baugfx:    +0
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Wegspeed:   145, 120, 170, 100
+    Maxenergy:  3
+   	Ruinenr:		RUINE_FELD
+    RandAnz:    11
+    RandAdd:    2
+    Objekt:     HAUS_PRODTYP	
+      Kind:       ROHSTOFF
+      Ware:       BAUM
+      Rohstoff:   NOWARE
+    EndObj;
+
+  ;---Rohstoffe-Wald (2)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (4)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (5)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (6)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (3)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (7)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (8)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (9)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (10)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald (11)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (1)---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDPALMEN+0
+    Gfx:        GFXWALD+66
+    Baugfx:     BGFXFELDER+19
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Wegspeed:   145, 120, 170, 100
+    Maxenergy:  3
+   	Ruinenr:		RUINE_FELD
+    RandAnz:    11
+    RandAdd:    2
+    AnimAnz:    5
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   900
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +5
+    @Baugfx:    +0
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Wegspeed:   145, 120, 170, 100
+    Maxenergy:  3
+   	Ruinenr:		RUINE_FELD
+    RandAnz:    11
+    RandAdd:    2
+    Objekt:     HAUS_PRODTYP	
+      Kind:       ROHSTOFF
+      Ware:       BAUM
+      Rohstoff:   NOWARE
+    EndObj;
+
+  ;---Rohstoffe-Wald Palmen (2)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (4)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (5)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (6)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (3)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (7)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (8)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (9)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (10)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+  ;---Rohstoffe-Wald Palmen (11)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +5
+
+;===============RUINENZEICHEN==================;
+
+	;---Ruine Holzhaus---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+0
+    Gfx:        GFXBODEN+400
+    Kind:       RUINE
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+    RandAnz:    6
+    RandAdd:    1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+  ;---Ruine Holzhaus Strand---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+9
+    Gfx:        GFXBODEN+413
+    Kind:       STRANDRUINE
+    Posoffs:    HIGHMEER
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+
+	;---Ruine Ziegelhaus---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+10
+    Gfx:        GFXBODEN+406
+    Kind:       RUINE
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+    RandAnz:    6
+    RandAdd:    1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+  ;---Ruine Ziegelhaus Strand---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+19
+    Gfx:        GFXBODEN+412
+    Kind:       STRANDRUINE
+    Posoffs:    HIGHMEER
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+
+	;---Ruine Plantagenfelder---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+20
+    Gfx:        GFXROHST+83
+    Kind:       RUINE
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+    RandAnz:    2
+    RandAdd:    1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +6
+
+  ;---Ruine Strassen Feldweg---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+30
+    Gfx:        GFXBODEN+426
+    Kind:       RUINE
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+    RandAnz:    3
+    RandAdd:    1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+  ;---Ruine Strassen gepflastert---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+35
+    Gfx:        GFXBODEN+429
+    Kind:       RUINE
+    Size:       1, 1
+    Rotate:			0
+    Destroyflg: 1
+    Highflg:    0
+    RandAnz:    3
+    RandAdd:    1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +1
+
+  ;---Ruine Minen und Steinbrüche---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDRUINE+40
+    Gfx:        GFXHANG+144
+    Kind:       HANG
+    Size:       1, 1
+    Rotate:			1
+    Destroyflg: 1
+    Highflg:    0
+    RandAnz:    1
+    RandAdd:    1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+
+;===============MEERESZEICHEN==================;
+
+  ;---Meereszeichen Dunkel (Rohstoff) #1---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDMEER+50
+    Gfx:        GFXMEER+72
+    Baugfx:     BGFXMEER+6
+    Kind:       MEER
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    AnimAdd:    1
+    AnimAnz:    6
+    AnimTime:   130
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   450
+    EndObj;
+
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    Id:         IDMEER+0
+    Gfx:        GFXMEER+78
+    Baugfx:     BGFXMEER+6
+    Kind:       MEER
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    AnimAdd:    1
+    AnimAnz:    6
+    AnimTime:   130
+    Objekt:     HAUS_PRODTYP	
+      Kind:       ROHSTOFF
+      Ware:       FISCHE
+			Rohstoff:		NOWARE
+    EndObj;
+
+  ;---Meereszeichen Mittel-Dunkel (Rohstoff) #2---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDMEER+58
+    Gfx:        GFXMEER+84
+    Baugfx:     BGFXMEER+7
+    Rotate:     1
+    AnimAdd:    4
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Id:         IDMEER+8
+    Gfx:        GFXMEER+108
+    Baugfx:     BGFXMEER+7
+    Rotate:     1
+    AnimAdd:    4
+
+  ;---Meereszeichen Mittel (Rohstoff) #3---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDMEER+53
+    Gfx:        GFXMEER+60
+    Baugfx:     BGFXMEER+5
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Id:         IDMEER+3
+    Gfx:        GFXMEER+66
+    Baugfx:     BGFXMEER+5
+
+  ;---Meereszeichen Übergang (Rohstoff) #4---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDMEER+51
+    Gfx:        GFXMEER+12
+    Baugfx:     BGFXMEER+1
+    Rotate:     1
+    AnimAdd:    4
+    Objekt:     HAUS_PRODTYP
+      Kind:       UNUSED
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Id:         IDMEER+1
+    Gfx:        GFXMEER+36
+    Baugfx:     BGFXMEER+1
+    Rotate:     1
+    AnimAdd:    4
+    Objekt:     HAUS_PRODTYP
+      Kind:       UNUSED
+      Ware:       NOWARE
+    EndObj;
+
+  ;---Meereszeichen Hell (Rohstoff) #5---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    Id:         IDMEER+52
+    Gfx:        GFXMEER+0
+    Baugfx:     BGFXMEER
+    Objekt:     HAUS_PRODTYP
+      Kind:       UNUSED
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    Id:         IDMEER+2
+    Gfx:        GFXMEER+6
+    Baugfx:     BGFXMEER
+    Objekt:     HAUS_PRODTYP
+      Kind:       UNUSED
+      Ware:       NOWARE
+    EndObj;
+
+  ;---Brandungszeichen Gerade---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMEER+4
+    Gfx:        GFXMEER+132
+    Kind:       BRANDUNG
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+		Rotate:     1
+    PlaceFlg:   1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   180
+
+  ;---Brandungszeichen Innen---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    Kind:       BRANDECK
+    Gfx:        GFXMEER+156
+
+  ;---Brandungszeichen Außen---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    Kind:       BRANDECK
+    Gfx:        GFXMEER+180
+
+  ;---Mündungszeichen Fluss---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    Id:         IDMEER+7
+    Gfx:        GFXMEER+204
+    Baugfx:     BGFXMEER+11
+    Kind:       MUENDUNG
+    Rotate:     1
+    PlaceFlg:   1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   130
+
+  ;---Brandungszeichen Gerade (Variationen)---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    Id:         IDMEER+13
+    Gfx:        GFXMEER+228
+    Baugfx:     BGFXBRAND+0
+    Kind:       MUENDUNG
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +24
+    @Baugfx:    +4
+    Kind:       MUENDUNG
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +24
+    @Baugfx:    +4
+    Kind:       MUENDUNG
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +24
+    @Baugfx:    +4
+    Kind:       MUENDUNG
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +24
+    @Baugfx:    +4
+    Kind:       MUENDUNG
+
+  ;---Brandungszeichen Inneneneck (Variationen)---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    Id:         IDMEER+20
+    Kind:       BRANDECK
+    Gfx:        GFXMEER+348
+    Baugfx:     BGFXBRAND+20
+
+;=================HANGZEICHEN================;
+
+  ;---Hangzeichen Gerade (rotierbar)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDHANG+0
+    Gfx:        GFXHANG+0
+    Baugfx:     BGFXHANG+0
+    Kind:       HANG
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    NoShotFlg:  1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Hangzeichen Flußquelle (rotierbar)---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    Id:         IDHANG+10
+    Gfx:        GFXHANG+120
+    Baugfx:     BGFXHANG+120
+    Kind:       HANGQUELL
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   130
+  
+  ;---Hangzeichen Eckstück Außen (rotierbar)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDHANG+20
+    Gfx:        GFXHANG+40
+    Baugfx:     BGFXHANG+40
+    Kind:       HANGECK
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    NoShotFlg:  1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Hangzeichen Eckstück Innen (rotierbar)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDHANG+40
+    Gfx:        GFXHANG+80
+    Baugfx:     BGFXHANG+80
+    Kind:       HANGECK
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    NoShotFlg:  1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+;===============STRANDZEICHEN==================;
+
+  ;---Strandzeichen gerade---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+10
+    Gfx:        GFXSTRAND+0
+    Baugfx:     BGFXSTRAND+40
+    Kind:       STRAND
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    BASE =      Nummer
+    Kind:       STRANDVARI
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Strandzeichen Inneneck---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+30
+    Gfx:        GFXSTRAND+40
+    Baugfx:     BGFXSTRAND+80
+    Kind:       STRANDECKI
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +0
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +0
+    @Baugfx:    +4
+
+  ;---Strandzeichen Ausseneck---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+50
+    Gfx:        GFXSTRAND+72
+    Baugfx:     BGFXSTRAND+112
+    Kind:       STRANDECKA
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +0
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +0
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +0
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +0
+    @Baugfx:    +4
+
+  ;---Strandzeichen Mündung---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+70
+    Gfx:        GFXSTRAND+104
+    Baugfx:     BGFXSTRAND+144
+    Kind:       STRANDMUND
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   130
+
+  ;---Strandzeichen felsig---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+80
+    Gfx:        GFXSTRAND+128
+    Baugfx:     BGFXSTRAND+148
+    Kind:       STRAND
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    BASE =      Nummer
+    Kind:       STRANDVARI
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Kleine Inseln nahe der Küste---;
+    @Nummer:    +1
+    BASE =			Nummer
+		Id:         IDMEER+30
+    Gfx:        GFXINSEL+0
+    Baugfx:     BGFXSTRAND+0
+    Kind:       STRANDECKI
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Pierzeichen---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+72
+    Gfx:        GFXPIER+0
+    Baugfx:     BGFXHAFEN+0
+    Kind:       PIER
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    Objekt:     HAUS_PRODTYP
+	    Radius:     5
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      15
+      Ziegel:     2
+    EndObj;
+
+  ;---Fischerei---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDSTRAND+74
+    Gfx:        GFXPIER+4
+    Baugfx:     BGFXHAFEN+4
+    Kind:       STRANDHAUS
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Highflg:    1
+    Size:       1, 1
+    Rotate:     1
+    Ruinenr:		RUINE_HOLZ
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       FISCHEREI
+      Ware:       NAHRUNG
+      Rohstoff:   FISCHE
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+      Figurnr:    FISCHER
+      Figuranz:   1
+      Maxnorohst:	8
+      Arbeiter:		1
+			Rohmenge:   3
+      Radius:     5
+			Interval:   28
+      Maxlager:   4
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       5
+      Money:      100
+		EndObj;
+
+;===============GEBAEUDE AM PIER==============;
+
+  ;---Kontor unterschiedliche Größen---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDHAFEN+0
+    Gfx:        GFXKONTOR+0
+    Baugfx:     BGFXHAFEN+8
+		Bausample:	WAV_KONTOR
+   	Ruinenr:		RUINE_KONTOR_1
+    Kind:       HQ
+    Size:       2, 3
+    Rotate:     6
+    KreuzBase:  BASE
+    PlaceFlg:   1
+		Strandflg:	1
+    Ausbauflg:	1
+		NoShotFlg:  1
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+      Kosten:     KOST_KONTOR_1, KOST_KONTOR_1
+			Ware:				ALLWARE
+      Rohstoff:   ALLWARE
+      Figurnr:    KARREN
+      Figuranz:   1
+			Arbeiter:		2
+  	  Rauchfignr:	FAHNEKONTOR1
+      Rohmenge:   1
+      Maxlager:   30
+	    Maxware:    3, 4
+      Radius:     RADIUS_HQ
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       6
+      Money:      100
+		EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +2
+    @Gfx:       +24
+    @Baugfx:    +4    
+   	@Ruinenr:		+1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+			Bauinfra:		INFRA_KONTOR_1
+      Figurnr:    KARREN
+      Figuranz:   2
+			Arbeiter:		3
+  	  Rauchfignr:	FAHNEKONTOR2
+	    Maxware:    4, 7
+      Maxlager:   50
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       7
+      Money:      180
+		EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +2
+    @Gfx:       +24
+    @Baugfx:    +4    
+   	@Ruinenr:		+1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+			Bauinfra:		INFRA_KONTOR_2
+      Figurnr:    KARREN
+      Figuranz:   2
+			Arbeiter:		4
+  	  Rauchfignr:	FAHNEKONTOR3
+	    Maxware:    6, 8
+      Maxlager:   75
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   4
+      Holz:       4
+      Ziegel:     6
+      Money:      250
+		EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +2
+    @Gfx:       +24
+    @Baugfx:    +4    
+   	@Ruinenr:		+1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+			Bauinfra:		INFRA_KONTOR_3
+      Figurnr:    KARREN
+      Figuranz:   2
+			Arbeiter:		5
+  	  Rauchfignr:	FAHNEKONTOR4
+	    Maxware:    8, 11
+      Maxlager:   100
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   5
+      Holz:       4
+			Ziegel: 		10
+      Money:      250
+		EndObj;
+  
+  ;---Kontore zerstört---;
+    @Nummer:    +1
+    HAUSBASE =  Nummer
+    Id:         IDHAFEN+20
+    Gfx:        GFXKONTOR+144
+    Kind:       HQ
+    Size:       2, 3
+    Rotate:     6
+    KreuzBase:  BASE
+    PlaceFlg:   1
+		Strandflg:	1
+    Ausbauflg:	1
+		NoShotFlg:  1
+    Destroyflg: 1
+    Tuerflg:    1
+   	Bausample:  WAV_NIX
+    Ruinenr:		RUINE_HOLZ
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+      Kosten:     KOST_BEDARF_1, KOST_BEDARF_1_SLP
+			Ware:				ALLWARE
+      Rohstoff:   ALLWARE
+      Figurnr:    KARREN
+      Figuranz:   1
+			Arbeiter:		1
+      Rohmenge:   1
+      Maxlager:   20
+	    Maxware:    1, 3
+      Radius:     RADIUS_HQ
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    HAUSBASE
+    @Id:        +1
+    @Gfx:       +24
+    Ruinenr:		RUINE_HOLZ
+
+    @Nummer:    +1
+    ObjFill:    HAUSBASE
+    @Id:        +1
+    @Gfx:       +24
+    Ruinenr:		RUINE_STEIN
+
+    @Nummer:    +1
+    ObjFill:    HAUSBASE
+    @Id:        +1
+    @Gfx:       +24
+    Ruinenr:		RUINE_STEIN
+
+  ;---Schiffswerft---;
+    @Nummer:    +1
+    Id:         IDHAFEN+10
+    Gfx:        GFXWERFT
+    Baugfx:     BGFXHAFEN+28
+    Kind:       HAFEN
+    Size:       4, 4
+    Rotate:     16
+    Posoffs:    HIGHMEER
+		Einhoffs:		3.0
+    Maxenergy:  115
+    NoShotFlg:  1
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WERFT
+      Maxlager:   1
+      Radius:     15
+			Bauinfra:		INFRA_STUFE_5A
+      Kosten:     KOST_WERFT_2, KOST_WERFT_2_SLP
+			Interval:		2
+			Prodmenge:  1
+  		Rohstoff:		HOLZ
+			Rohmenge:		1
+			Workstoff:	STOFFE
+			Workmenge:	0.15
+      Figurnr:    PACKESEL
+      Figuranz:   1
+			Arbeiter:		6
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   10
+      Holz:       25
+      Ziegel:     6
+      Money:      2800
+		EndObj;
+
+  ;---Kleine Schiffswerft---;
+    @Nummer:    +1
+    Id:         IDHAFEN+14
+    Gfx:        GFXWERFT+64
+    Baugfx:     BGFXHAFEN+32
+    Kind:       HAFEN
+    Size:       3, 3
+    Rotate:     9
+    Posoffs:    HIGHMEER
+    NoShotFlg:  1
+    Maxenergy:  95
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WERFT
+      Maxlager:   1
+      Radius:     12
+			Bauinfra:		INFRA_STUFE_2F
+      Kosten:     KOST_WERFT_1, KOST_WERFT_1_SLP
+			Interval:		4
+			Prodmenge:  1
+			Rohstoff:		HOLZ
+			Rohmenge:		1
+			Workstoff:	STOFFE
+			Workmenge:	0.25
+      Figurnr:    PACKESEL
+      Figuranz:   1
+			Arbeiter:		4
+    EndObj;
+		Objekt:			HAUS_BAUKOST
+      Werkzeug:   8
+      Holz:       12
+      Ziegel:     3
+      Money:      1100
+		EndObj;
+
+;=================FELSZEICHEN===================;
+
+  ;---Felszeichen---;
+    @Nummer:    +1
+    Id:         IDFELS+7
+    Gfx:        GFXFELS+0
+    Baugfx:     BGFXFELS+0
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       4, 4
+    Rotate:     16
+    PlaceFlg:   1
+		Einhoffs:		3.5
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTERZ
+      Ware:       ERZE
+      Erzbergnr:  ERZBERG_GROSS
+      Maxlager:   200
+    EndObj;
+  
+    @Nummer:    +1
+    Id:         IDFELS+8
+    Gfx:        GFXFELS+64
+    Baugfx:     BGFXFELS+4
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       4, 4
+    Rotate:     16
+		Einhoffs:		4.5
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTERZ
+      Ware:       ERZE
+      Erzbergnr:  ERZBERG_GROSS
+      Maxlager:   200
+    EndObj;
+  
+    @Nummer:    +1
+    Id:         IDFELS+9
+    Gfx:        GFXFELS+128
+    Baugfx:     BGFXFELS+8
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       6, 6
+		Einhoffs:		6.0
+    Rotate:     36
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTERZ
+      Ware:       ERZE
+      Erzbergnr:  ERZBERG_GROSS
+      Maxlager:   200
+    EndObj;
+  
+    @Nummer:    +1
+    Id:         IDFELS+2
+    Gfx:        GFXFELS+272
+    Baugfx:     BGFXFELS+12
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       3, 3
+    Rotate:     9
+		Einhoffs:		4.0
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTERZ
+      Ware:       ERZE
+      Erzbergnr:  ERZBERG_KLEIN
+      Maxlager:   200
+    EndObj;
+  
+    @Nummer:    +1
+    Id:         IDFELS+5
+    Gfx:        GFXFELS+308
+    Baugfx:     BGFXFELS+16
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       3, 3
+    Rotate:     9
+		Einhoffs:		1.7
+    PlaceFlg:   1
+    NoShotFlg:  1
+  
+    @Nummer:    +1
+    Id:         IDFELS+6
+    Gfx:        GFXFELS+344
+    Baugfx:     BGFXFELS+20
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       3, 3
+    Rotate:     9
+		Einhoffs:		3.3
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTERZ
+      Ware:       ERZE
+      Erzbergnr:  ERZBERG_KLEIN
+      Maxlager:   200
+    EndObj;
+  
+    @Nummer:    +1
+    Id:         IDFELS+3
+    Gfx:        GFXFELS+380
+    Baugfx:     BGFXFELS+24
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       2, 2
+    Rotate:     4
+    PlaceFlg:   1
+    NoShotFlg:  1
+  
+    @Nummer:    +1
+    Id:         IDFELS+4
+    Gfx:        GFXFELS+396
+    Baugfx:     BGFXFELS+28
+		Bausample:	WAV_NIX
+    Kind:       FELS
+    Size:       2, 2
+    Rotate:     4
+    PlaceFlg:   1
+    NoShotFlg:  1
+  
+;==========BODENZEICHEN ZUR KOMPATIBLITÄT====================;
+
+  ;---Sumpfzeichen (6 Stück)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDBODEN+20
+    Gfx:        GFXBODEN+56       ; Boden_01
+    Baugfx:     BGFXFELDER+4
+    Kind:       BODEN
+    Size:       1, 1
+    Rotate:     0
+		PlaceFlg:   1
+    Highflg:    0
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+1
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+1
+
+  ;---Wüstenzeichen (10 Stück)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDBODEN+40
+    Gfx:        GFXBODEN+280    ; Wüste_01
+    Baugfx:     BGFXDIVSCP+32
+    Kind:       BODEN
+    Size:       1, 1
+    Rotate:			1
+		PlaceFlg:   1
+    Highflg:    0
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+  ;---Wüstenzeichen (10 Stück)---;
+    @Nummer:    +1
+    ObjFill:    BASE
+    BASE =      Nummer
+    @Id:        +1
+    Gfx:        GFXBODEN+360    ; Wüste_02
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+  ;---Diverse Landschaftszeichen (10 Stück)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDBODEN+60
+    Gfx:        GFXBODEN+120      ; Boden_02
+    Baugfx:     BGFXDIVSCP+112
+    Kind:       BODEN
+    Size:       1, 1
+    Rotate:			1
+		PlaceFlg:   1
+    Highflg:    0
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+  ;---Sumpfzeichen (10 Stück)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDBODEN+80      ; Boden_03
+    Gfx:        GFXBODEN+200
+    Baugfx:     BGFXDIVSCP+152
+    Kind:       BODEN
+    Size:       1, 1
+    Rotate:			1
+		PlaceFlg:   1
+    Highflg:    0
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+		@Baugfx:		+4
+
+
+;=================FLUSSSTUECKE==================;
+
+  ;---Flußstücke---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDFLUSS
+    Gfx:        GFXFLUSS
+    Baugfx:     BGFXFLUSS
+    Kind:       FLUSS
+    Highflg:    0
+    KreuzBase:  BASE
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   150
+
+    @Nummer:    +1
+    Id:         IDFLUSS+1
+    Gfx:        GFXFLUSS+24
+    Baugfx:     BGFXFLUSS+4
+    Kind:       FLUSS
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   150
+
+    @Nummer:    +1
+    Id:         IDFLUSS+2
+    Gfx:        GFXFLUSS+48
+    Baugfx:     BGFXFLUSS+8
+    Kind:       FLUSS
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     1
+    PlaceFlg:   1
+    Destroyflg: 1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   150
+
+    @Nummer:    +1
+    Id:         IDFLUSS+3
+    Gfx:        GFXFLUSS+72
+    Baugfx:     BGFXFLUSS+12
+    Kind:       FLUSSECK
+    Highflg:    0
+    Size:       2, 2
+    Rotate:     4
+    PlaceFlg:   1
+    Destroyflg: 1
+    AnimAdd:    16
+    AnimAnz:    6
+    AnimTime:   150
+
+    @Nummer:    +1
+    Id:         IDFLUSS+4
+    Gfx:        GFXFLUSS+168
+    Baugfx:     BGFXFLUSS+16
+    Kind:       FLUSSECK
+    Highflg:    0
+    Size:       2, 2
+    Rotate:     4
+    PlaceFlg:   1
+    Destroyflg: 1
+    AnimAdd:    16
+    AnimAnz:    6
+    AnimTime:   150
+
+;=============MILITAERISCHE-BAUWERKE===============;
+
+  ;---Mauern - Stein---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMAUER+0
+    Gfx:        GFXMAUER+0
+    Baugfx:     BGFXMILMAUER+0
+    Kind:       MAUER
+    KreuzBase:  BASE
+    Maxenergy:  50
+    Strandoff:  3
+    Size:       1, 1
+    Rotate:     1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_BURG_1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Ziegel:     2
+      Money:      18
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Mauern - Stein - Strand---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMAUER+40
+    Gfx:        GFXMAUER+40
+    Baugfx:     BGFXMILMAUER+0
+    Kind:       MAUERSTRAND
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Maxenergy:  50
+    Mundoff:    3
+    Size:       1, 1
+    Rotate:     1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_BURG_1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Ziegel:     3
+      Money:      20
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Mauern - Stein - Strandmündung---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMAUER+50
+    Gfx:        GFXMAUER+72
+    Baugfx:     BGFXMILMAUER+0
+    Kind:       MAUERSTRAND
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+    Maxenergy:  50
+    Grundflg:   1
+   	Ruinenr:		NORUINE
+    Size:       1, 1
+    Rotate:     1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_BURG_1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Ziegel:     3
+      Money:      20
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    Grundflg:   0
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    Grundflg:   0
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Mauern - Holz---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMAUER+20
+    Gfx:        GFXMAUER+20
+    Baugfx:     BGFXMILMAUER+20
+   	Ruinenr:		RUINE_HOLZ
+    Maxenergy:  33
+    Kind:       MAUER
+    KreuzBase:  BASE
+    Strandoff:  3
+    Size:       1, 1
+    Rotate:     1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_STUFE_2B
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Holz:       2
+      Money:      10
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Mauern - Holz - Strand---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMAUER+60
+    Gfx:        GFXMAUER+56
+    Baugfx:     BGFXMILMAUER+20
+   	Ruinenr:		RUINE_HOLZ
+    Maxenergy:  33
+    Kind:       MAUERSTRAND
+    KreuzBase:  BASE
+    Mundoff:    3
+    Posoffs:    HIGHMEER
+    Size:       1, 1
+    Rotate:     1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_STUFE_2B
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Holz:       2
+      Money:      12
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Mauern - Holz - Strand-Mündung---*/
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDMAUER+60
+    Gfx:        GFXMAUER+84
+    Baugfx:     BGFXMILMAUER+70
+   	Ruinenr:		RUINE_HOLZ
+    Maxenergy:  33
+    Grundflg:   1
+    Kind:       MAUERSTRAND
+    KreuzBase:  BASE
+    Posoffs:    HIGHMEER
+   	Ruinenr:		NORUINE
+    Size:       1, 1
+    Rotate:     1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_STUFE_2B
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Holz:       2
+      Money:      12
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    Grundflg:   0
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    Grundflg:   0
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+
+  ;---Tor für Mauern - Stein---;
+    @Nummer:    +1
+    Id:         IDMIL+2
+    Gfx:        GFXTOR
+    Baugfx:     BGFXMILMAUER+40
+    Kind:       TOR
+    Size:       1, 3
+    Rotate:     3
+    Maxenergy:  50
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_BURG_1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Ziegel:     4
+      Money:      25
+    EndObj;
+
+    @Nummer:    +1
+    Id:         IDMIL+3
+    Gfx:        GFXMAUER+16
+    Baugfx:     BGFXMILMAUER+16
+    Kind:       TOR
+    Size:       1, 1
+    Rotate:     1
+    Maxenergy:  50
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+			Bauinfra:		INFRA_BURG_1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Ziegel:     3
+      Money:      15
+    EndObj;
+
+  ;---Wachturm Stein Normal+Strand---;
+    @Nummer:    +1
+    Id:         IDMIL+4
+    Gfx:        GFXMAUER+12
+    Baugfx:     BGFXMILMAUER+12
+    Kind:       TURM
+    Strandoff:  1
+    Maxenergy:  55
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		2.8
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WACHTURM
+      Radius:     8
+			Bauinfra:		INFRA_STUFE_2G
+      Kosten:     KOST_WENIG, KOST_WENIG
+	    Figurnr:    KANONTURM
+      Rauchfignr:	FAHNETURM1
+			Arbeiter:		2
+      Maxlager:   1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       1
+      Ziegel:     6
+      Kanon:      2
+      Money:      300
+    EndObj;
+
+    @Nummer:    +1
+    Id:         IDMIL+5
+    Gfx:        GFXMAUER+52
+    Baugfx:     BGFXMILMAUER+12
+    Kind:       TURMSTRAND
+    Posoffs:    HIGHMEER
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		2.8
+    Maxenergy:  55
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WACHTURM
+      Radius:     8
+			Bauinfra:		INFRA_WACHTURM
+      Kosten:     KOST_WENIG, KOST_WENIG
+	    Figurnr:    KANONTURM
+	    Rauchfignr:	FAHNETURM1
+			Arbeiter:		2
+      Maxlager:   1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       1
+      Ziegel:     6
+      Kanon:      2
+      Money:      300
+    EndObj;
+
+  ;---Tor für Mauern - Holz---;
+    @Nummer:    +1
+    Id:         IDMILHOLZ+3
+    Gfx:        GFXMAUER+36
+    Baugfx:     BGFXMILMAUER+36
+   	Ruinenr:		RUINE_HOLZ
+    Kind:       TOR
+    Size:       1, 1
+    Rotate:     1
+    Maxenergy:  30
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       pMAUER
+  		Bauinfra:		INFRA_STUFE_2B
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Holz:       2
+      Money:      12
+    EndObj;
+
+  ;---Wachturm Holz Normal+Strand---;
+    @Nummer:    +1
+    Id:         IDMILHOLZ+4
+    Gfx:        GFXMAUER+32
+    Baugfx:     BGFXMILMAUER+32
+    Kind:       TURM
+    Strandoff:  1
+    Size:       1, 1
+    Rotate:     1
+    Maxenergy:  37
+    NoShotFlg:  1
+    Einhoffs:		2.8
+    Objekt:     HAUS_PRODTYP
+      Kind:       WACHTURM
+      Radius:     8
+			Bauinfra:		INFRA_WACHTURM
+      Kosten:     KOST_WENIG, KOST_WENIG
+	    Figurnr:    KANONTURM
+	    Rauchfignr:	FAHNETURM2
+			Arbeiter:		2
+      Maxlager:   1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       7
+      Kanon:      2
+      Money:      200
+    EndObj;
+
+    @Nummer:    +1
+    Id:         IDMILHOLZ+5
+    Gfx:        GFXMAUER+68
+    Baugfx:     BGFXMILMAUER+32
+    Kind:       TURMSTRAND
+    Posoffs:    HIGHMEER
+    Size:       1, 1
+    Rotate:     1
+    Maxenergy:  37
+    NoShotFlg:  1
+    Einhoffs:		2.8
+    Objekt:     HAUS_PRODTYP
+      Kind:       WACHTURM
+      Radius:     8
+			Bauinfra:		INFRA_WACHTURM
+      Kosten:     KOST_WENIG, KOST_WENIG
+	    Figurnr:    KANONTURM
+	    Rauchfignr:	FAHNETURM2
+			Arbeiter:		2
+      Maxlager:   1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       7
+      Kanon:      2
+      Money:      200
+    EndObj;
+
+  ;---Festungen---;
+    @Nummer:    +1
+    Id:         IDMIL+10
+    Gfx:        GFXBURG+0
+    Baugfx:     BGFXMILBURG+0
+		Bausample:	WAV_BURG
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Maxenergy:  100
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       MILITAR
+      Radius:     15
+			Bauinfra:		INFRA_BURG_1
+      Kosten:     KOST_BURG_1, KOST_BURG_1_SLP
+      Figurnr:    PACKESEL
+      Figuranz:   1
+			Arbeiter:		4
+			Prodmenge:  0.5
+      Interval:   10
+      Maxlager:   2
+      Maxware:		3
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   4
+      Holz:       3
+      Ziegel:     10
+      Money:      600
+    EndObj;
+
+    @Nummer:    +1
+    Id:         IDMIL+12
+    Gfx:        GFXBURG+16
+    Baugfx:     BGFXMILBURG+4
+		Bausample:	WAV_BURG
+    Kind:       GEBAEUDE
+    Size:       3, 3
+    Rotate:     9
+    Maxenergy:  150
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       MILITAR
+      Radius:     15
+			Bauinfra:		INFRA_BURG_2
+      Kosten:     KOST_BURG_2, KOST_BURG_2_SLP
+      Figurnr:    PACKESEL
+      Figuranz:   1
+			Arbeiter:		6
+			Prodmenge:  0.75
+      Interval:   10
+      Maxlager:   2
+      Maxware:		5
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   8
+      Holz:       5
+      Ziegel:     18
+      Money:      1300
+    EndObj;
+
+    @Nummer:    +1
+    Id:         IDMIL+14
+    Gfx:        GFXBURG+52
+    Baugfx:     BGFXMILBURG+8
+		Bausample:	WAV_BURG
+    Kind:       GEBAEUDE
+    Size:       5, 5
+    Rotate:     25
+    Maxenergy:  220
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       MILITAR
+      Radius:     15
+			Bauinfra:		INFRA_BURG_3
+      Kosten:     KOST_BURG_3, KOST_BURG_3_SLP
+      Figurnr:    PACKESEL
+      Figuranz:   1
+			Arbeiter:		8
+			Prodmenge:  1
+      Interval:   10
+      Maxlager:   2
+      Maxware:		8
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   12
+      Holz:       8
+      Ziegel:     25
+      Money:      2500
+    EndObj;
+
+;===============STRASSEN-UND-WEGE==================;
+
+  ;---Straßenstücke Stein---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDROAD+0
+    Gfx:        GFXROAD+0
+    Baugfx:     BGFXROAD+0
+   	Ruinenr:		RUINE_ROAD_STEIN
+    Kind:       STRASSE
+    Highflg:    0
+    Wegspeed:   100, 100, 100, 100
+    KreuzBase:  BASE
+    Size:       1, 1
+    Rotate:     1
+    Objekt:     HAUS_PRODTYP
+			Bauinfra:		INFRA_STUFE_2A
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+      Ziegel:     1
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    Rotate:     0
+
+  ;---Straßenstücke Feldweg---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDROAD+10
+    Gfx:        GFXROAD+20
+    Baugfx:     BGFXROAD+20
+   	Ruinenr:		RUINE_ROAD_FELD
+    Kind:       STRASSE
+    Highflg:    0
+    Wegspeed:   110, 100, 130, 100
+    KreuzBase:  BASE
+    Size:       1, 1
+    Rotate:     1
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    Rotate:     0
+
+  ;---Holz-Brücke---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDBRUECKE+0
+    Gfx:        GFXROAD+36
+    Baugfx:     BGFXROAD+36
+    Kind:       BRUECKE
+    Highflg:    0
+    Wegspeed:   100, 100, 130, 100
+    KreuzBase:  BASE
+    Size:       1, 1
+    Rotate:     1
+    Objekt:     HAUS_BAUKOST
+      Money:      10
+      Holz:       2
+    EndObj;
+
+  ;---Stein-Brücke---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDBRUECKE+2
+    Gfx:        GFXROAD+16
+    Baugfx:     BGFXROAD+16
+    Kind:       BRUECKE
+    Highflg:    0
+    Wegspeed:   100, 100, 100, 100
+    KreuzBase:  BASE
+    Size:       1, 1
+    Rotate:     1
+    Objekt:     HAUS_PRODTYP
+			Bauinfra:		INFRA_STUFE_2A
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      15
+      Ziegel:     2
+    EndObj;
+
+  ;---Platz---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDROAD+20
+    Gfx:        GFXROAD+40
+    Baugfx:     BGFXROAD+40
+    Kind:       PLATZ
+    Highflg:    0
+    Wegspeed:   100, 100, 100, 100
+    KreuzBase:  BASE
+    Size:       1, 1
+    Rotate:     1
+    Objekt:     HAUS_PRODTYP
+			Bauinfra:		INFRA_BURG_1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+      Ziegel:     1
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+    Objekt:     HAUS_PRODTYP
+			Bauinfra:		INFRA_STUFE_4A
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+    Objekt:     HAUS_PRODTYP
+			Bauinfra:		INFRA_STUFE_4A
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    Kind:       GEBAEUDE
+    @Id:        +1
+    @Gfx:       +4
+    @Baugfx:    +4
+    Objekt:     HAUS_PRODTYP
+			Bauinfra:		INFRA_STUFE_4A
+    EndObj;
+
+;=============HANDWERK-ZWISCHENPRODUKTE==============;
+
+  ;---Getreidemühle---;
+    @Nummer:    +1
+    Id:         IDHANDW+0
+    Gfx:        GFXMUEHL
+    Baugfx:     BGFXFARM+68
+   	Bausample:  WAV_MUEHLE
+    Ruinenr:		RUINE_HOLZ
+	  Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Einhoffs:		2.8
+		Tuerflg:    1
+    AnimAdd:    16
+    AnimAnz:    16
+    AnimTime:   90
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       MEHL
+      Rohstoff:   KORN
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+    	Bauinfra:		INFRA_STUFE_2D
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Arbeiter:		2
+      Rohmenge:   2
+      Radius:     10
+      Anicontflg:	1
+			Interval:   18
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       6
+      Money:      100
+    EndObj;
+
+  ;---Wassermühle---;
+    @Nummer:    +1
+    Id:         IDHANDW+8
+    Gfx:        GFXMUEHL+256
+    Baugfx:     BGFXFARM+76
+   	Bausample:  WAV_MUEHLE
+    Ruinenr:		RUINE_HOLZ
+	  Kind:       WMUEHLE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Einhoffs:		2.2
+    Grundflg:   1
+		Tuerflg:    1
+    AnimAdd:    16
+    AnimAnz:    6
+    AnimTime:   130
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       MEHL
+      Rohstoff:   KORN
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+    	Bauinfra:		INFRA_STUFE_2D
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Arbeiter:		2
+      Rohmenge:   2
+      Radius:     10
+      Anicontflg:	1
+			Interval:   18
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       6
+      Money:      100
+    EndObj;
+
+  ;---Erz-Schmelze---;
+    @Nummer:    +1    
+    Id:         IDHANDW+20
+    Gfx:        GFXHANDW+144
+    Baugfx:     BGFXHANDW+36
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Einhoffs:		1.8
+		AnimAdd:    16
+    AnimAnz:    5
+    AnimTime:   90
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       EISEN
+      Rohstoff:   EISENERZ
+      Workstoff:  HOLZ
+      Kosten:     KOST_ERHOEHT, KOST_ERHOEHT_SLP
+      Figurnr:    PACKESEL
+      Figuranz:   1
+	    Rauchfignr:	RAUCHSCHMELZ
+      Arbeiter:		3
+      Rohmenge:   1
+      Workmenge:  1
+      Radius:     10
+			Bauinfra:		INFRA_STUFE_2F
+      Interval:   29
+      Maxlager:   5
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       1
+      Ziegel:     4
+      Money:      200
+    EndObj;
+
+;===============HANDWERK-ENDPRODUKTE================;
+
+  ;---Bäckereien---;
+    @Nummer:    +1    
+    Id:         IDHANDW+2
+    Gfx:        GFXHANDW+0
+    Baugfx:     BGFXHANDW+0
+		Bausample:	WAV_BAECKER
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Einhoffs:		2.0
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       NAHRUNG
+      Rohstoff:   MEHL
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+    	Bauinfra:		INFRA_STUFE_2D
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Rauchfignr:	RAUCHBAECK
+      Arbeiter:		2
+			Rohmenge:   2
+      Radius:     15
+      Interval:   19
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       6
+      Money:      150
+    EndObj;
+
+  ;---Fleischer---;
+    @Nummer:    +1    
+    Id:         IDHANDW+10
+    Gfx:        GFXHANDW+80
+    Baugfx:     BGFXHANDW+20
+		Bausample:	WAV_FLEISCHER
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Einhoffs:   1.75
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       NAHRUNG
+      Rohstoff:   FLEISCH
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+			Bauinfra:		INFRA_STUFE_1A
+      Figurnr:    FLEISCHER
+      Figuranz:   1
+      Arbeiter:		2
+      Rohmenge:   2
+      Radius:     10
+      Interval:   25
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       6
+      Money:      150
+    EndObj;
+
+  ;---Schneider---;
+    @Nummer:    +1    
+    Id:         IDHANDW+4
+    Gfx:        GFXHANDW+16
+    Baugfx:     BGFXHANDW+4
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       KLEIDUNG
+      Rohstoff:   STOFFE
+      Kosten:     KOST_BEDARF_1, KOST_BEDARF_1_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Arbeiter:		3
+      Rohmenge:   1
+      Radius:     15
+			Bauinfra:		INFRA_STUFE_3C
+      Interval:   30
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       6
+      Ziegel:     2
+      Money:      150
+    EndObj;
+
+  ;---Webstube---;
+    @Nummer:    +1    
+    KREUZBASE = Nummer
+    Id:         IDHANDW+6
+    Gfx:        GFXHANDW+32
+    Baugfx:     BGFXHANDW+8
+    Kind:       GEBAEUDE
+    KreuzBase:  KREUZBASE
+    Ausbauflg:	1
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       STOFFE
+      Rohstoff:   WOLLE
+      Kosten:     KOST_BEDARF_1, KOST_BEDARF_1_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Arbeiter:		2
+      Rohmenge:   2
+      Radius:     15
+      Interval:   30
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       6
+      Ziegel:     0
+      Money:      200
+    EndObj;
+
+  ;---Weberei---;
+    @Nummer:    +1    
+    Id:         IDHANDW+30
+    Gfx:        GFXHANDW+48
+    Baugfx:     BGFXHANDW+12
+    Kind:       GEBAEUDE
+    KreuzBase:  KREUZBASE
+    Ausbauflg:	1
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       STOFFE
+      Rohstoff:   WOLLE
+      Kosten:     KOST_BEDARF_3, KOST_BEDARF_3_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Arbeiter:		4
+      Rohmenge:   2
+      Radius:     15
+			Bauinfra:		INFRA_STUFE_3C
+      Interval:   17
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   4
+      Holz:       3
+      Ziegel:     7
+      Money:      200
+    EndObj;
+
+  ;---Rumbrennerei---;
+    @Nummer:    +1    
+    Id:         IDHANDW+18
+    Gfx:        GFXHANDW+64
+    Baugfx:     BGFXHANDW+16
+		Bausample:	WAV_RUMBRENNER
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       ALKOHOL
+      Rohstoff:   ZUCKER
+      Kosten:     KOST_BEDARF_2, KOST_BEDARF_2_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+ 	    Rauchfignr:	RAUCHBRENNER
+      Arbeiter:		3
+      Rohmenge:   2
+      Radius:     12
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   23
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       2
+      Ziegel:     5
+      Money:      200
+    EndObj;
+
+  ;---Tabakwaren---;
+    @Nummer:    +1    
+    Id:         IDHANDW+24
+    Gfx:        GFXHANDW+96
+    Baugfx:     BGFXHANDW+24
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       TABAKWAREN
+      Rohstoff:   TABAK
+      Kosten:     KOST_BEDARF_3, KOST_BEDARF_3_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Arbeiter:		2
+      Rohmenge:   2
+      Radius:     12
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   30
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       2
+      Ziegel:     5
+      Money:      200
+    EndObj;
+
+  ;---Goldschmied---;
+    @Nummer:    +1    
+    Id:         IDHANDW+32
+    Gfx:        GFXHANDW+112
+    Baugfx:     BGFXHANDW+28
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       SCHMUCK
+      Rohstoff:   GOLD
+      Kosten:     KOST_SPEZIAL, KOST_SPEZIAL_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+      Rauchfignr:	RAUCHGOLD
+      Arbeiter:		3
+      Rohmenge:   0.5
+      Radius:     12
+			Bauinfra:		INFRA_STUFE_4A
+      Interval:   50
+      Maxlager:   4
+      NoMoreWork: 1
+      NoLagVoll:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   7
+      Holz:       2
+      Ziegel:     10
+      Money:      1500
+    EndObj;
+
+  ;---Werkzeug-Schmiede---;
+    @Nummer:    +1    
+    Id:         IDHANDW+14
+    Gfx:        GFXHANDW+224
+    Baugfx:     BGFXHANDW+40
+		Bausample:	WAV_SCHWERTBAU
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+		Einhoffs:		1.7
+    AnimAdd:    16
+    AnimAnz:    5
+    AnimTime:   90
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       WERKZEUG
+      Rohstoff:   EISEN
+      Kosten:     KOST_ERHOEHT, KOST_ERHOEHT_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+ 	    Rauchfignr:	RAUCHWERKZEUG
+      Arbeiter:		3
+      Rohmenge:   0.5
+      Radius:     15
+			Bauinfra:		INFRA_STUFE_2E
+      Interval:   35
+      Maxlager:   4
+      NoMoreWork: 1
+      MakLagFlg:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       2
+      Ziegel:     5
+      Money:      150
+    EndObj;
+
+  ;---Musketen-Bauer---;
+    @Nummer:    +1    
+    Id:         IDHANDW+28
+    Gfx:        GFXHANDW+304
+    Baugfx:     BGFXHANDW+44
+		Bausample:	WAV_SCHWERTBAU
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    AnimAdd:    16
+    AnimAnz:    5
+    AnimTime:   90
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       MUSKETEN
+      Rohstoff:   EISEN
+      Workstoff:  HOLZ
+      Kosten:     KOST_WAFFE_2, KOST_WAFFE_2_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+ 	    Rauchfignr:	RAUCHMUSKET
+      Arbeiter:		4
+      Rohmenge:   1
+			Workmenge:	0.5
+      Radius:     15
+			Bauinfra:		INFRA_MUSKETE
+      Interval:   50
+      Maxlager:   4
+      NoMoreWork: 1
+      MakLagFlg:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   9
+      Holz:       4
+      Ziegel:     10
+      Money:      600
+    EndObj;
+
+  ;---Kanonen-Gießerei---;
+    @Nummer:    +1    
+    Id:         IDHANDW+26
+    Gfx:        GFXHANDW+384
+    Baugfx:     BGFXHANDW+48
+		Bausample:	WAV_GIESSEREI
+    Kind:       GEBAEUDE
+    Size:       3, 3
+    Rotate:     9
+    NoShotFlg:  1
+		Einhoffs:		3.0
+    AnimAdd:    36
+    AnimAnz:    5
+    AnimTime:   90
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       KANONEN
+      Rohstoff:   EISEN
+      Workstoff:  HOLZ
+      Kosten:     KOST_WAFFE_3, KOST_WAFFE_3_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+ 	    Rauchfignr:	RAUCHKANONEN
+      Arbeiter:		5
+	    Rohmenge:   1
+			Workmenge:	1
+      Radius:     15
+			Bauinfra:		INFRA_KANON
+      Interval:   50
+      Maxlager:   4
+      NoMoreWork: 1
+      MakLagFlg:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   6
+      Holz:       5
+      Ziegel:     15
+      Money:      750
+    EndObj;
+
+  ;---Schwert-Bauer---;
+    @Nummer:    +1    
+    Id:         IDHANDW+16
+    Gfx:        GFXHANDW+564
+    Baugfx:     BGFXHANDW+52
+		Bausample:	WAV_SCHWERTBAU
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    AnimAdd:    16
+    AnimAnz:    5
+    AnimTime:   90
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HANDWERK
+      Ware:       SCHWERTER
+      Rohstoff:   EISEN
+      Kosten:     KOST_WAFFE_1, KOST_WAFFE_1_SLP
+      Figurnr:    TRAEGER
+      Figuranz:   1
+ 	    Rauchfignr:	RAUCHSCHWERT
+      Arbeiter:		3
+      Rohmenge:   1
+      Radius:     15
+			Bauinfra:		INFRA_BURG_1
+      Interval:   50
+      Maxlager:   4
+      NoMoreWork: 1
+      MakLagFlg:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   5
+      Holz:       4
+      Ziegel:     10
+      Money:      450
+    EndObj;
+
+;=================ROHSTOFFE-BERGBAU==================;
+
+  ;---Steinbruch---;
+    @Nummer:    +1    
+    Id:         IDMINE+6
+    Gfx:        GFXMINE+0
+    Baugfx:     BGFXMINE+0
+   	Ruinenr:		RUINE_MINE
+    Maxenergy:  55
+    Kind:       MINE
+    Size:       1, 2
+    Rotate:     2
+    Objekt:     HAUS_PRODTYP
+      Kind:       STEINBRUCH
+      Ware:       STEINE
+			Bauinfra:		INFRA_STUFE_2A
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   6
+      Holz:       2
+      Money:      150
+    EndObj;
+    
+  ;---Kleine Erzmine---;
+    @Nummer:    +1  
+    BASE =      Nummer  
+    Id:         IDMINE+0
+    Gfx:        GFXMINE+8
+    Baugfx:     BGFXMINE+4
+		Bausample:	WAV_MINE
+   	Ruinenr:		RUINE_MINE
+    Kind:       MINE
+    Size:       1, 2
+    Einhoffs:		1.4
+    KreuzBase:  BASE
+    Ausbauflg:	1
+    Maxenergy:  115
+    Rotate:     2
+    AnimAdd:    8
+    AnimAnz:    8
+    AnimTime:   90
+    Objekt:     HAUS_PRODTYP
+      Kind:       BERGWERK
+      Ware:       EISENERZ
+      Kosten:     KOST_ERZBAU, KOST_ERZBAU_SLP
+      Erzbergnr:  ERZBERG_KLEIN
+      Arbeiter:		8
+			Rohmenge:   1
+      Radius:     1
+			Bauinfra:		INFRA_STUFE_2F
+      Interval:   40
+      Maxlager:   5
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   10
+      Holz:       20
+      Ziegel:     5
+      Money:      1000
+    EndObj;
+    
+  ;---Grosse Erzmine---;
+    @Nummer:    +1    
+    Id:         IDMINE+2
+    Gfx:        GFXMINE+72
+    Baugfx:     BGFXMINE+8
+		Bausample:	WAV_MINE
+   	Ruinenr:		RUINE_MINE
+    Kind:       MINE
+    Size:       1, 2
+    Einhoffs:		1.4
+    KreuzBase:  BASE
+    Ausbauflg:	1
+    Maxenergy:  115
+    Rotate:     2
+    AnimAdd:    8
+    AnimAnz:    8
+    AnimTime:   90
+    Objekt:     HAUS_PRODTYP
+      Kind:       BERGWERK
+      Ware:       EISENERZ
+      Kosten:     KOST_ERZBAU, KOST_ERZBAU_SLP
+      Erzbergnr:  ERZBERG_GROSS
+      Arbeiter:		10
+			Rohmenge:   1
+      Radius:     1
+			Bauinfra:		INFRA_STUFE_3F
+      Interval:   40
+      Maxlager:   5
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   15
+      Holz:       30
+      Ziegel:     7
+      Money:      1800
+    EndObj;
+    
+  ;---Goldmine---;
+    @Nummer:    +1    
+    Id:         IDMINE+4
+    Gfx:        GFXMINE+136
+    Baugfx:     BGFXMINE+12
+		Bausample:	WAV_MINE
+   	Ruinenr:		RUINE_MINE
+    Kind:       MINE
+    Size:       1, 2
+    Einhoffs:		1.4
+    KreuzBase:  KREUZBASE
+    Ausbauflg:	1
+    Maxenergy:  115
+    Rotate:     2
+    AnimAdd:    8
+    AnimAnz:    8
+    AnimTime:   90
+    Objekt:     HAUS_PRODTYP
+      Kind:       BERGWERK
+      Ware:       GOLD
+      Kosten:     KOST_ERZBAU, KOST_ERZBAU_SLP
+      Erzbergnr:  ERZBERG_KLEIN
+      Arbeiter:		10
+			Rohmenge:   1
+      Radius:     1
+			Bauinfra:		INFRA_STUFE_3B
+      Interval:   80
+      Maxlager:   4
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   10
+      Holz:       20
+      Ziegel:     5
+      Money:      1000
+    EndObj;
+    
+;=================HANDWERK-BERGBAU===============;
+
+  ;---Steinmetz---;
+    @Nummer:    +1    
+    Id:         IDHANDW+12
+    Gfx:        GFXFARM+64
+    Baugfx:     BGFXFARM+16
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		1.6
+    AnimAnz:    4
+    AnimAdd:    16
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       ZIEGEL
+      Rohstoff:   STEINE
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+  		Bauinfra:		INFRA_STUFE_2A
+      Figurnr:    STEINKLOPFER
+      Figuranz:   1
+      Arbeiter:		2
+      Rohmenge:   1
+      Radius:     7
+      Interval:   8
+      Maxlager:   8
+      LagAniFlg:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   5
+      Holz:       5
+      Money:      100
+    EndObj;
+
+;================FARMEN-ANBAU-JAGD================;
+
+  ;---Försterhaus---;
+    @Nummer:    +1    
+    BASE =      Nummer
+    Id:         IDFORST+0
+    Gfx:        GFXFARM+0
+    Baugfx:     BGFXFARM+0
+   	Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		1.65
+    AnimAnz:    4
+    AnimAdd:    16
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       HOLZ
+      Rohstoff:   BAUM
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+      Figurnr:    HOLZFAELLER
+      Figuranz:   1
+			Maxnorohst: 8
+      Arbeiter:		1
+      Rohmenge:   1
+      Radius:     3
+      Interval:   8
+      Maxlager:   10
+      LagAniFlg:  1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Money:      50
+    EndObj;
+
+  ;---Jagdhuette---;
+    @Nummer:    +1    
+    Id:         IDFORST+2
+    Gfx:        GFXLAGER+4
+    Baugfx:     BGFXFARM+72
+		Bausample:	WAV_JAGDHUETTE
+   	Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    Size:       1, 1
+    Rotate:     1
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       JAGDHAUS
+  	  Ware:       NAHRUNG
+      Rohstoff:   WILD
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+      Figurnr:    JAEGER
+      Figuranz:   1
+			Maxnorohst: 8
+      Arbeiter:		1
+			Rohmenge:   1
+      Radius:     8
+      Interval:   15
+      Maxlager:   3
+      NoMoreWork: 1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       2
+      Money:      50
+    EndObj;
+
+  ;---Getreide-Farm---;
+    @Nummer:    +1
+    Id:         IDFARM+2
+    Gfx:        GFXFARM+128
+    Baugfx:     BGFXFARM+32
+		Bausample:	WAV_PLANTAGE
+   	Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		1.65
+		Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       KORN
+      Rohstoff:   GETREIDE
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+  		Bauinfra:		INFRA_STUFE_2D
+      Figurnr:    MAEHER
+      Figuranz:   1
+      Arbeiter:		2
+			Maxnorohst: 6
+      Rohmenge:   1
+      Radius:     1
+      Interval:   8
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       5
+      Money:      100
+    EndObj;
+		
+  ;---Baumwollplantage---;
+    @Nummer:    +1
+    Id:         IDFARM+4
+    Gfx:        GFXFARM+144
+    Baugfx:     BGFXFARM+36
+		Bausample:	WAV_PLANTAGE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  40
+    NoShotFlg:  1
+    Einhoffs:		1.75
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       WOLLE
+      Rohstoff:   BAUMWOLLE
+      Figurnr:    PFLUECKER
+      Kosten:     KOST_PLANTAGE_1, KOST_PLANTAGE_1_SLP
+			Maxnorohst: 6
+      Arbeiter:   4
+      Rohmenge:   1
+      Radius:     2
+			Bauinfra:		INFRA_STUFE_3C
+      Interval:   10
+      Maxlager:   9
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       3
+      Ziegel:     6
+      Money:      200
+    EndObj;
+		
+  ;---Tabak-Plantage---;
+    @Nummer:    +1    
+    Id:         IDFARM+6
+    Gfx:        GFXFARM+192
+    Baugfx:     BGFXFARM+48
+		Bausample:	WAV_PLANTAGE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  40
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       TABAK
+      Rohstoff:   TABAKBAUM
+      Kosten:     KOST_PLANTAGE_2, KOST_PLANTAGE_2_SLP
+      Figurnr:    PFLUECKER
+			Maxnorohst: 6
+      Arbeiter:   4
+      Rohmenge:   2
+      Radius:     2
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   15
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       3
+      Ziegel:     8
+      Money:      300
+    EndObj;
+
+  ;---Kakao-Plantage---;
+    @Nummer:    +1    
+    Id:         IDFARM+8
+    Gfx:        GFXFARM+208
+    Baugfx:     BGFXFARM+52
+		Bausample:	WAV_PLANTAGE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  40
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       KAKAO
+      Rohstoff:   KAKAOBAUM
+      Kosten:     KOST_PLANTAGE_2, KOST_PLANTAGE_2_SLP
+      Figurnr:    PFLUECKER
+			Maxnorohst: 6
+      Arbeiter:   4
+      Rohmenge:   3
+      Radius:     2
+			Bauinfra:		INFRA_STUFE_3C
+      Interval:   15
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       3
+      Ziegel:     8
+      Money:      300
+    EndObj;
+
+  ;---Zuckerrohr-Plantage---;
+    @Nummer:    +1    
+    Id:         IDFARM+10
+    Gfx:        GFXFARM+224
+    Baugfx:     BGFXFARM+56
+		Bausample:	WAV_PLANTAGE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  40
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       ZUCKER
+      Rohstoff:   ZUCKERROHR
+      Kosten:     KOST_PLANTAGE_1, KOST_PLANTAGE_1_SLP
+      Figurnr:    PFLUECKER
+			Maxnorohst: 6
+      Arbeiter:   4
+      Rohmenge:   2
+      Radius:     2
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   8
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       3
+      Ziegel:     8
+      Money:      300
+    EndObj;
+
+  ;---Weinanbau-Plantage---;
+    @Nummer:    +1    
+    Id:         IDFARM+16
+    Gfx:        GFXFARM+240
+    Baugfx:     BGFXFARM+60
+		Bausample:	WAV_PLANTAGE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       ALKOHOL
+      Rohstoff:   WEINTRAUBEN
+      Kosten:     KOST_PLANTAGE_2, KOST_PLANTAGE_2_SLP
+      Figurnr:    PFLUECKER
+			Maxnorohst: 6
+      Arbeiter:   4
+      Rohmenge:   4
+      Radius:     2
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   15
+      Maxlager:   6
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       3
+      Ziegel:     8
+      Money:      300
+    EndObj;
+
+  ;---Gewürze-Plantage---;
+    @Nummer:    +1    
+    Id:         IDFARM+0
+    Gfx:        GFXFARM+256
+    Baugfx:     BGFXFARM+64
+		Bausample:	WAV_PLANTAGE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  40
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       GEWUERZE
+      Rohstoff:   GEWUERZBAUM
+      Kosten:     KOST_PLANTAGE_2, KOST_PLANTAGE_2_SLP
+      Figurnr:    PFLUECKER
+			Maxnorohst: 6
+      Arbeiter:   4
+      Rohmenge:   3
+      Radius:     2
+			Bauinfra:		INFRA_STUFE_2C
+      Interval:   15
+      Maxlager:   4
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       3
+      Ziegel:     8
+      Money:      300
+    EndObj;
+
+;================FARMEN-TIERHALTUNG==============;
+
+  ;---Rinderfarm---;
+    @Nummer:    +1    
+    Id:         IDFARM+12
+    Gfx:        GFXFARM+160
+    Baugfx:     BGFXFARM+40
+		Bausample:	WAV_PLANTAGE
+   	Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		2.3
+    Objekt:     HAUS_PRODTYP
+      Kind:       WEIDETIER
+  	  Ware:       FLEISCH
+      Rohstoff:   GRAS
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+  		Bauinfra:		INFRA_STUFE_1A
+      Figurnr:    RIND
+      Figuranz:   2
+			Maxnorohst: 6
+      Arbeiter:		2
+      Rohmenge:   2
+      Radius:     2
+      Interval:   25
+      Maxlager:   4
+      NoMoreWork: 1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   1
+      Holz:       4
+      Money:      100
+    EndObj;
+
+  ;---Schaf-Farm---;
+    @Nummer:    +1    
+    Id:         IDFARM+14
+    Gfx:        GFXFARM+176
+    Baugfx:     BGFXFARM+44
+		Bausample:	WAV_PLANTAGE
+  	Ruinenr:		RUINE_HOLZ
+	  Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		1.65
+    Objekt:     HAUS_PRODTYP
+      Kind:       WEIDETIER
+  	  Ware:       WOLLE
+      Rohstoff:   GRAS
+      Kosten:     KOST_WENIG, KOST_WENIG_SLP
+      Figurnr:    SCHAF
+      Figuranz:   3
+			Maxnorohst: 8
+      Arbeiter:		2
+      Rohmenge:   4
+      Radius:     3
+      Interval:   30
+      Maxlager:   8
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       4
+      Ziegel:     0
+      Money:      200
+    EndObj;
+
+
+;=================WOHNHAEUSER===================;
+
+  ;---Wohnhäuser Ruine (Random 1 Stück)---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDWOHN+0
+    Gfx:        GFXWOHN+0
+    Kind:       GEBAEUDE
+    KreuzBase:  BASE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    RandAnz:    1
+    RandAdd:    1
+		
+  ;---Wohnhäuser I (Random 7 Stück)---;
+    @Nummer:    +1    
+    BASE =      Nummer
+    GFXNR =     GFXWOHN+80
+    Id:         IDWOHN+4
+    Gfx:        GFXNR
+    Baugfx:     BGFXWOHN+0
+		Bausample:	WAV_WOHNHAUS
+		Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    KreuzBase:  BASE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		1.5
+    RandAnz:    7
+    RandAdd:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WOHNUNG
+			Radius:			6
+	    BGruppe:    0
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Holz:       3
+    EndObj;
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+  ;---Wohnhäuser II (Random 5 Stück)---;
+    @Nummer:    +1
+    @GFXNR =    +112
+    BASE =      Nummer
+    Id:         IDWOHN+20
+    Gfx:        GFXNR
+    Baugfx:     BGFXWOHN+4
+		Bausample:	WAV_WOHNHAUS
+		Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    Tuerflg:    1
+    KreuzBase:  BASE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		1.8
+    RandAnz:    5
+    RandAdd:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WOHNUNG
+			Radius:			6
+	    BGruppe:    1
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   1
+      Holz:       3
+    EndObj;
+		
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+  ;---Wohnhäuser III (Random 5 Stück)---;
+    @Nummer:    +1
+    @GFXNR =    +80
+    BASE =      Nummer
+    Id:         IDWOHN+30
+    Gfx:        GFXNR
+    Baugfx:     BGFXWOHN+8
+		Bausample:	WAV_WOHNHAUS
+    Kind:       GEBAEUDE
+    KreuzBase:  BASE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		2.1
+		RandAnz:    6
+    RandAdd:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WOHNUNG
+			Radius:			6
+	    BGruppe:    2
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       2
+      Ziegel:     6
+    EndObj;
+		
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+  ;---Wohnhäuser IV (Random 5 Stück)---;
+    @Nummer:    +1
+    @GFXNR =    +96
+    BASE =      Nummer
+    Id:         IDWOHN+40
+    Gfx:        GFXNR
+    Baugfx:     BGFXWOHN+12
+		Bausample:	WAV_WOHNHAUS
+    Kind:       GEBAEUDE
+    KreuzBase:  BASE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		2.3
+    RandAnz:    5
+    RandAdd:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WOHNUNG
+			Radius:			6
+	    BGruppe:    3
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       3
+      Ziegel:     9
+    EndObj;
+		
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1    
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+  ;---Wohnhäuser V (Random 2 Stück)---;
+    @Nummer:    +1
+    @GFXNR =    +80
+    BASE =      Nummer
+    Id:         IDWOHN+50
+    Gfx:        GFXNR
+    Baugfx:     BGFXWOHN+16
+		Bausample:	WAV_WOHNHAUS
+    Kind:       GEBAEUDE
+    KreuzBase:  BASE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    NoShotFlg:  1
+    Einhoffs:		2.4
+    RandAnz:    6
+    RandAdd:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WOHNUNG
+			Radius:			6
+	    BGruppe:    4
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       3
+      Ziegel:     12
+    EndObj;
+		
+    @Nummer:    +1 
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+
+;===================DIVERSES====================;
+
+  ;---Neger-Hütten I, Hauptquartier + 2 Häuser---;
+    @Nummer:    +1
+    KONTBASE =  Nummer
+    Kind:       HQ
+    Id:         IDNEGER+0
+    Gfx:        GFXNEGER+0
+    Baugfx:			BGFXDIVSCP+192
+    Size:       2, 2
+    Rotate:     4
+   	Ruinenr:		RUINE_KONTOR_N1
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+			Ware:				ALLWARE
+      Rohstoff:   ALLWARE
+      Figurnr:    TRAEGER2
+      Figuranz:   1
+      Arbeiter:   3
+      Maxlager:   30
+	    Maxware:    3, 4
+      Nativflg:   1
+      Radius:     5
+    EndObj;
+
+    @Nummer:    +1
+    BASE =      Nummer
+    @Id:        +1
+    @Gfx:       +16
+    @Baugfx:    +4
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       MILITAR
+      Radius:     4
+			Prodmenge:  1
+      Figurnr:    SPEER1
+      Figuranz:   1
+      Arbeiter:   3
+      Interval:   10
+      Maxlager:   2
+      Maxware:		8
+      Nativflg:   1
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +16
+    @Baugfx:    +4
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PIRATWOHN
+      Radius:     4
+      Maxlager:   1
+      Nativflg:   1
+    EndObj;
+
+  ;---Neger-Hütten I, Gewürzproduktion---;
+    @Nummer:    +1
+    @Id:        +1
+    Gfx:        GFXNEGER+112
+    Baugfx:			BGFXDIVSCP+196
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       GEWUERZE
+      Rohstoff:   GEWUERZBAUM
+      Figurnr:    PFLUECKER2
+      Figuranz:   1
+      Arbeiter:   3
+			Maxnorohst: 6
+      Rohmenge:   2
+      Radius:     2
+      Interval:   15
+      Maxlager:   6
+      Nativflg:   1
+    EndObj;
+
+  ;---Neger-Hütten I, Tabakproduktion---;
+    @Nummer:    +1
+    @Id:        +1
+    Gfx:        GFXNEGER+128
+    Baugfx:			BGFXDIVSCP+200
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       TABAKWAREN
+      Rohstoff:   TABAKBAUM
+      Figurnr:    PFLUECKER2
+      Figuranz:   1
+      Arbeiter:   3
+			Maxnorohst: 6
+      Rohmenge:   2
+      Radius:     2
+      Interval:   15
+      Maxlager:   6
+      Nativflg:   1
+    EndObj;
+
+  ;---Neger-Hütten I, Hauptquartier zerstört---;
+    @Nummer:    +1
+    ObjFill:    KONTBASE
+    Id:         IDNEGER+9
+    Gfx:        GFXNEGER+208
+    Ruinenr:		RUINE_STEIN
+    Destroyflg: 1
+    Objekt:     HAUS_PRODTYP
+      Maxlager:   15
+	    Maxware:    1, 3
+    EndObj;
+
+  ;---Neger-Hütten II, Hauptquartier + 2 Wohnhäuser---;
+    @Nummer:    +1
+    KONTBASE =  Nummer
+    Id:         IDNEGER+30
+    Gfx:        GFXNEGER+48
+    Baugfx:			BGFXDIVSCP+204
+    Kind:       HQ
+    Size:       2, 2
+    Rotate:     4
+   	Ruinenr:		RUINE_KONTOR_N2
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+			Ware:				ALLWARE
+      Rohstoff:   ALLWARE
+      Figurnr:    TRAEGER2
+      Figuranz:   1
+      Arbeiter:   3
+      Maxlager:   30
+	    Maxware:    3, 4
+      Radius:     5
+      Nativflg:   1
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +16
+    @Baugfx:    +4
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Ruinenr:		RUINE_HOLZ
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PIRATWOHN
+      Radius:     4
+      Maxlager:   1
+      Nativflg:   1
+    EndObj;
+
+    @Nummer:    +1
+    @Id:        +1
+    @Gfx:       +16
+    @Baugfx:    +4
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Ruinenr:		RUINE_HOLZ
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       MILITAR
+      Radius:     4
+			Prodmenge:  1
+      Interval:   10
+      Figurnr:    SPEER1
+      Figuranz:   1
+      Arbeiter:   3
+      Maxlager:   2
+      Maxware:		8
+      Nativflg:   1
+    EndObj;
+
+  ;---Neger-Hütten II, Gewürzproduktion---;
+    @Nummer:    +1
+    @Id:        +1
+    Gfx:        GFXNEGER+160
+    Baugfx:			BGFXDIVSCP+208
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Ruinenr:		RUINE_HOLZ
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       GEWUERZE
+      Rohstoff:   GEWUERZBAUM
+      Figurnr:    PFLUECKER2
+      Figuranz:   1
+      Arbeiter:   3
+			Maxnorohst: 6
+      Rohmenge:   2
+      Radius:     2
+      Interval:   15
+      Maxlager:   6
+      Nativflg:   1
+    EndObj;
+
+  ;---Neger-Hütten II, Tabakproduktion---;
+    @Nummer:    +1
+    @Id:        +1
+    Gfx:        GFXNEGER+176
+    Baugfx:			BGFXDIVSCP+212
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Ruinenr:		RUINE_HOLZ
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PLANTAGE
+  	  Ware:       TABAKWAREN
+      Rohstoff:   TABAKBAUM
+      Figurnr:    PFLUECKER2
+      Figuranz:   1
+      Arbeiter:   3
+			Maxnorohst: 6
+      Rohmenge:   2
+      Radius:     2
+      Interval:   15
+      Maxlager:   6
+      Nativflg:   1
+    EndObj;
+
+  ;---Neger-Hütten II, Hauptquartier zerstört---;
+    @Nummer:    +1
+    ObjFill:    KONTBASE
+    Id:         IDNEGER+39
+    Gfx:        GFXNEGER+192
+    Destroyflg: 1
+    Ruinenr:		RUINE_HOLZ
+    Objekt:     HAUS_PRODTYP
+      Maxlager:   15
+	    Maxware:    1, 3
+      Nativflg:   1
+    EndObj;
+
+  ;---Azteken-Pyramide---;
+    @Nummer:    +1
+    Id:         IDNEGER+10
+    Gfx:        GFXNEGER+224
+    Baugfx:			BGFXDIVSCP+216
+		Bausample:	WAV_PYRAMIDE
+		Kind:       FELS
+    Size:       4, 4
+    Rotate:     16
+    PlaceFlg:   1
+    NoShotFlg:  1
+
+	;---Piraten-Kontor---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDNEGER+20
+    Gfx:        GFXKONTOR+120
+    Baugfx:			BGFXDIVSCP+236
+		Bausample:	WAV_KONTOR
+    Ruinenr:		RUINE_KONTOR_1
+    Kind:       HQ
+    Size:       2, 3
+    Rotate:     6
+    KreuzBase:  BASE
+    PlaceFlg:   1
+		Strandflg:	1
+    Ausbauflg:	1
+		NoShotFlg:  1
+    Tuerflg:    1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KONTOR
+			Ware:				ALLWARE
+      Rohstoff:   ALLWARE
+      Figurnr:    KARREN
+      Figuranz:   1
+			Arbeiter:		4
+  	  Rauchfignr:	FAHNEKONTOR
+      Rohmenge:   1
+      Maxlager:   30
+	    Maxware:    6, 4
+      Radius:     RADIUS_HQ
+      Piratflg:   1
+    EndObj;
+
+	;---Piraten-Gebäude---;
+    @Nummer:    +1
+    BASE =			Nummer
+		@Id:        +1
+    Gfx:        GFXNEGER+288
+    Baugfx:			BGFXDIVSCP+220
+		Bausample:	WAV_PIRATEN
+		Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       PIRATWOHN
+      Arbeiter:   6
+      Piratflg:   1
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+		@Baugfx:		+4
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +16
+		@Baugfx:		+4
+
+  ;---Piraten-Turm---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDNEGER+40
+    Gfx:        GFXNEGER+336
+    Baugfx:			BGFXDIVSCP+232
+    Kind:       TURM
+    Strandoff:  1
+    Maxenergy:  80
+    Size:       1, 1
+    Rotate:     0
+    Einhoffs:		2.3
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WACHTURM
+      Radius:     8
+	    Figurnr:    PIRATTURM
+	    Rauchfignr:	FAHNETURM3
+      Maxlager:   1
+      Piratflg:   1
+    EndObj;
+
+    @Nummer:    +1
+    ObjFill:    BASE
+    @Id:        +1
+    @Gfx:       +4
+    Kind:       TURMSTRAND
+    Strandoff:  0
+    Posoffs:    HIGHMEER
+    Size:       1, 1
+
+
+;==================DIVERSES=====================;
+
+  ;---Kathetrale---;
+    @Nummer:    +1
+    Id:         IDDIVERS+0
+    Gfx:        GFXKIRCH
+    Baugfx:     BGFXDIVERS+0
+		Bausample:	WAV_KATHETRALE
+    Kind:       GEBAEUDE
+    Size:       6, 4
+    Rotate:     24
+    Tuerflg:    1
+    Maxenergy:  230
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KIRCHE
+      Radius:     24
+      Arbeiter:   5
+			Kosten: 		KOST_KATHETRALE
+			Bauinfra:		INFRA_KATHETRALE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   25
+      Holz:       25
+      Ziegel:     70
+      Money:      7500
+    EndObj;
+
+  ;---Kapelle---;
+    @Nummer:    +1
+    Id:         IDDIVERS+2
+    Gfx:        GFXKIRCH+144
+    Baugfx:     BGFXDIVERS+8
+		Bausample:	WAV_KAPELLE
+   	Ruinenr:		RUINE_HOLZ
+    Kind:       GEBAEUDE
+    Size:       2, 1
+    Rotate:     2
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KAPELLE
+      Radius:     8
+      Arbeiter:   1
+			Kosten: 		KOST_KAPELLE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   2
+      Holz:       5
+      Money:      100
+    EndObj;
+
+  ;---Große Kirche---;
+    @Nummer:    +1
+    Id:         IDDIVERS+4
+    Gfx:        GFXKIRCH+96
+    Baugfx:     BGFXDIVERS+4
+		Bausample:	WAV_KIRCHE
+    Kind:       GEBAEUDE
+    Size:       4, 3
+    Rotate:     12
+    Tuerflg:    1
+    Maxenergy:  165
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KIRCHE
+      Radius:     21
+      Arbeiter:   3
+			Kosten: 		KOST_KIRCHE
+			Bauinfra:		INFRA_KIRCHE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   7
+      Holz:       7
+      Ziegel:     25
+      Money:      1600
+    EndObj;
+
+  ;---Wirtshaus---;
+    @Nummer:    +1
+    Id:         IDDIVERS+6
+    Gfx:        GFXKONTOR+96
+    Baugfx:     BGFXHAFEN+24
+		Bausample:	WAV_WIRTSHAUS
+    Kind:       GEBAEUDE
+    Size:       2, 3
+    Rotate:     6
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       WIRT
+      Radius:     12
+      Arbeiter:   3
+			Kosten: 		KOST_WIRT
+			Bauinfra:		INFRA_WIRT
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       4
+      Ziegel:     6
+      Money:      250
+    EndObj;
+   
+  ;---Theater---;
+    @Nummer:    +1
+    Id:         IDDIVERS+14
+    Gfx:        GFXTHEAT+0
+    Baugfx:     BGFXDIVERS+12
+		Bausample:	WAV_THEATER
+    Kind:       GEBAEUDE
+    Size:       3, 3
+    Rotate:     9
+    Tuerflg:    1
+    Maxenergy:  165
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       THEATER
+      Radius:     20
+      Arbeiter:   5
+			Kosten: 		KOST_THEATER
+			Bauinfra:		INFRA_THEATER
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   6
+      Holz:       5
+      Ziegel:     19
+      Money:      1200
+    EndObj;
+   
+ ;---Badehaus---;
+    @Nummer:    +1
+    Id:         IDDIVERS+12
+    Gfx:        GFXMARKT+0
+    Baugfx:     BGFXDIVERS+40
+		Bausample:	WAV_BADEHAUS
+    Kind:       GEBAEUDE
+    Size:       4, 3
+    Rotate:     12
+    Tuerflg:    1
+    Maxenergy:  165
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       BADEHAUS
+      Radius:     20
+      Arbeiter:   5
+			Kosten: 		KOST_BADE
+			Bauinfra:		INFRA_BADE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   6
+      Holz:       5
+      Ziegel:     19
+      Money:      1200
+    EndObj;
+   
+ ;---Marktplätze---;
+    @Nummer:    +1
+    BASE =      Nummer
+    Id:         IDDIVERS+8
+    Gfx:        GFXMARKT+48
+    Baugfx:     BGFXDIVERS+44
+		Bausample:	WAV_MARKT
+    Kind:       GEBAEUDE
+    Size:       4, 3
+    Rotate:     12
+    Tuerflg:    1
+    Ausbauflg:  1
+    KreuzBase:  BASE
+    Maxenergy:  115
+   	Ruinenr:		RUINE_MARKT
+    Einhoffs:		3.0
+    NoShotFlg:  1
+    AnimAdd:    48
+    AnimAnz:    3
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       MARKT
+      Radius:     RADIUS_MARKT
+			Kosten: 		KOST_BEDARF_1, KOST_BEDARF_1_SLP
+      Ware:       ALLWARE
+      Rohstoff:   ALLWARE
+			Arbeiter:		3
+      Figurnr:    KARREN
+      Figuranz:   2
+	    Rauchfignr:	FAHNEMARKT, GAUKLER1
+      Rohmenge:   1
+      Maxlager:   10
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   4
+      Holz:       10
+      Money:      200
+    EndObj;
+   
+ ;---Zerstörter Marktplatz---;
+    @Nummer:    +1
+    Id:         IDDIVERS+22
+    Gfx:        GFXMARKT+192
+    Baugfx:     BGFXDIVERS+44
+		Bausample:	WAV_MARKT
+    Kind:       GEBAEUDE
+    Size:       4, 3
+    Rotate:     12
+    Tuerflg:    1
+    Ausbauflg:  1
+    KreuzBase:  BASE
+    Maxenergy:  115
+    NoShotFlg:  1
+    Destroyflg: 1
+    Objekt:     HAUS_PRODTYP
+      Kind:       MARKT
+      Radius:     RADIUS_MARKT
+			Kosten: 		KOST_BEDARF_1, KOST_BEDARF_1_SLP
+      Ware:       ALLWARE
+      Rohstoff:   ALLWARE
+			Arbeiter:		2
+      Figurnr:    KARREN
+      Figuranz:   1
+	    Rauchfignr:	FAHNEMARKT
+      Rohmenge:   1
+      Maxlager:   10
+    EndObj;
+   
+ ;---Arzt-Praxis---;
+    @Nummer:    +1
+    Id:         IDDIVERS+16
+    Gfx:        GFXMEDI
+    Baugfx:     BGFXDIVERS+16
+		Bausample:	WAV_ARZT
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  50
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       KLINIK
+      Radius:     16
+			Kosten: 		KOST_ARZT
+      Arbeiter:   2
+			Bauinfra:		INFRA_ARZT
+      Figurnr:    ARZT
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   4
+      Holz:       4
+      Ziegel:     9
+      Money:      450
+    EndObj;
+   
+ ;---Hochschule---;
+    @Nummer:    +1
+    Id:         IDDIVERS+18
+    Gfx:        GFXSCHULE
+    Baugfx:     BGFXDIVERS+24
+		Bausample:	WAV_SCHULE
+    Kind:       GEBAEUDE
+    Size:       3, 3
+    Rotate:     9
+    Tuerflg:    1
+    Maxenergy:  135
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       HOCHSCHULE
+      Radius:     15
+      Arbeiter:   5
+			Kosten: 		KOST_HOCHSCHULE
+			Bauinfra:		INFRA_HOCHSCHULE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   6
+      Holz:       5
+      Ziegel:     19
+      Money:      750
+    EndObj;
+   
+ ;---Einfaches Schulgebäude---;
+    @Nummer:    +1
+    Id:         IDDIVERS+20
+    Gfx:        GFXSCHULE+36
+    Baugfx:     BGFXDIVERS+28
+		Bausample:	WAV_SCHULE
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    Maxenergy:  50
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       SCHULE
+      Radius:     12
+      Arbeiter:   2
+			Kosten: 		KOST_SCHULE
+			Bauinfra:		INFRA_SCHULE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:   4
+      Holz:       5
+      Ziegel:     5
+      Money:      300
+    EndObj;
+   
+  ;---Brunnen---;
+    @Nummer:    +1
+    Id:         IDDIVERS+10
+    Gfx:        GFXBRUNN+0
+    Baugfx:     BGFXDIVERS+52
+		Bausample:	WAV_BRUNNEN
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    Tuerflg:    1
+    AnimAdd:    16
+    AnimAnz:    6
+    AnimTime:   90
+    Objekt:     HAUS_PRODTYP
+      Kind:       BRUNNEN
+      Radius:     15
+      Arbeiter:   3
+			Kosten: 		KOST_BRUNNEN
+			Bauinfra:		INFRA_STUFE_2A
+      Figurnr:    LOESCH
+    EndObj;
+		Objekt:     HAUS_BAUKOST
+      Werkzeug:   3
+      Holz:       5
+      Money:      150
+    EndObj;
+
+  ;---Großes Schloss---;
+    @Nummer:    +1
+    Id:         IDDIVERS+30
+    Gfx:        GFXSCHLOSS
+    Baugfx:     BGFXDIVERS+20
+		Bausample:	WAV_SCHLOSS
+    Kind:       GEBAEUDE
+    Size:       5, 7
+    Rotate:     35
+    Tuerflg:    1
+    NoShotFlg:  1
+    Objekt:     HAUS_PRODTYP
+      Kind:       SCHLOSS
+      Kosten:     KOST_SCHLOSS
+			Bauinfra:		INFRA_SCHLOSS
+      Arbeiter:   20
+		EndObj;
+		Objekt:     HAUS_BAUKOST
+      Werkzeug:   15
+      Holz:       20
+      Ziegel:     50
+      Money:      5000
+    EndObj;
+
+  ;---Galgen-Baum---;
+    @Nummer:    +1
+    Id:         IDDIVERS+40
+    Gfx:        GFXGALGEN
+    Baugfx:     BGFXDIVERS+32
+    Kind:       GEBAEUDE
+    Size:       1, 1
+    Rotate:     1
+    Tuerflg:    1
+    AnimAdd:    4
+    AnimAnz:    6
+    AnimTime:   220
+    Objekt:     HAUS_PRODTYP
+      Kind:       GALGEN
+      Radius:     16
+			Kosten: 		KOST_GALGEN
+			Bauinfra:		INFRA_GALGEN
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Werkzeug:    1
+      Holz:        2
+      Money:       100
+    EndObj;
+
+  ;---Reiter-Statue---;
+    @Nummer:    +1
+    Id:         IDDIVERS+50
+    Gfx:        GFXEXTRA
+    Baugfx:     BGFXDIVERS+36
+		Bausample:	WAV_DENKMAL
+    Kind:       GEBAEUDE
+    Size:       1, 1
+    Tuerflg:    1
+    Rotate:     1
+    Objekt:     HAUS_PRODTYP
+      Kind:       DENKMAL
+			Bauinfra:		INFRA_DENKMAL
+		EndObj;
+
+  ;---Triumph-Bogen---;
+    @Nummer:    +1
+    Id:         IDDIVERS+52
+    Gfx:        GFXTOR+12
+    Baugfx:     BGFXMILMAUER+44
+		Bausample:	WAV_TRIUMPH
+    Kind:       TOR
+    Size:       1, 3
+    Rotate:     3
+    Objekt:     HAUS_PRODTYP
+      Kind:       TRIUMPH
+			Bauinfra:		INFRA_TRIUMPH
+		EndObj;
+
+;===========NICHT MEHR VERWENDETE GEBÄUDE=========;
+
+  ;---Spieler - Hauptquartier---;
+    @Nummer:    +1
+    Id:         IDMILHOLZ+10
+    Gfx:        GFXMEDI+0
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    PlaceFlg:   1
+    NoShotFlg:  1
+
+  ;---Wassermühle---;
+    @Nummer:    +1
+    Id:         IDHANDW+22
+    Gfx:        GFXMUEHL
+    Kind:       GEBAEUDE
+    Size:       2, 2
+    Rotate:     4
+    NoShotFlg:  1
+    Einhoffs:		2.8
+		Tuerflg:    1
+    AnimAdd:    16
+    AnimAnz:    16
+    AnimTime:   90
+
+  ;---Kornspeicher---;
+    @Nummer:    +1
+    Id:         IDLAGER+0
+    Gfx:        GFXLAGER+0
+    Baugfx:     BGFXDIVERS+48
+    Kind:       GEBAEUDE
+    Size:       1, 1
+    Rotate:     1
+    Tuerflg:    1
+    NoShotFlg:  1
+
+  ;---Rohstoffe-Weideland (1)---;
+    @Nummer:    +1
+    HAUSWACHS = Nummer
+    Id:         IDBODEN
+    Gfx:        GFXBODEN+4
+    Baugfx:     BGFXFELDER
+    Kind:       BODEN
+    Highflg:    0
+    Wegspeed:   145, 120, 170, 100
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    AnimAnz:    1
+    AnimAdd:    1
+    AnimTime:   TIMENEVER
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTWACHS
+      Ware:       NOWARE
+      Interval:   200
+    EndObj;
+
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    @Id:        +1
+    @Gfx:       +40
+    Kind:       BODEN
+    Highflg:    0
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    Wegspeed:   145, 120, 170, 100
+    Objekt:     HAUS_PRODTYP
+      Kind:       ROHSTOFF
+      Ware:       GRAS
+      Rohstoff:   NOWARE
+    EndObj;
+    Objekt:     HAUS_BAUKOST
+      Money:      5
+    EndObj;
+
+  ;---Weideland(2)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland(3)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Weideland(4)---;
+    @Nummer:    +1
+    ObjFill:    HAUSWACHS
+    @Id:        +1
+    @Gfx:       -36
+
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +1
+    @Gfx:       +40
+
+  ;---Rohstoffe-Wald Palmen (1)---;
+    @Nummer:    +1
+    HAUSFERT =  Nummer
+    Id:         IDROHST+51
+    Gfx:        GFXWALD+71
+    Baugfx:     BGFXFELDER+19
+    Kind:       WALD
+    Size:       1, 1
+    Rotate:     0
+    PlaceFlg:   1
+    NoShotFlg:  1
+    Wegspeed:   145, 120, 170, 100
+    RandAnz:    11
+    RandAdd:    2
+    Objekt:     HAUS_PRODTYP	
+      Kind:       ROHSTOFF
+      Ware:       BAUM
+      Rohstoff:   NOWARE
+    EndObj;
+
+  ;---Rohstoffe-Wald Palmen (2)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (3)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (4)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (5)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (6)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (7)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (8)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (9)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (10)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  ;---Rohstoffe-Wald Palmen (11)---;
+    @Nummer:    +1
+    ObjFill:    HAUSFERT
+    @Id:        +2
+    @Gfx:       +6
+
+  EndObj;
