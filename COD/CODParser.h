@@ -43,6 +43,7 @@ private:
 
 	void ParseCODFile(CODFile* CodFile);
 	int ParseCODFileLine(const char* line, int linepos, int startcharoffset);
+	int ParseHCacheFileLine(CODTileInfo* m_CODTileInfo, const char* line, int linepos, int startcharoffset);
 
 	int GetLastRelevantChar(const char* line, int start, size_t linelen) const;
 

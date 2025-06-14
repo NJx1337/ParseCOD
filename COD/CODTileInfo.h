@@ -16,8 +16,13 @@ struct STileTypeInfo
 	uint8_t HighFlg; // BuildingHeight?
 	char* Description; // Comment
 
+	STileTypeInfo()
+		: Id(0), Gfx(0), Posoffs(0), SizeX(1), SizeY(1), Rotate(0), AnimAnz(0), HighFlg(0), Description(nullptr)
+	{
+	}
+
 	STileTypeInfo(uint16_t _Id, uint16_t _Gfx, uint8_t _Posoffs, uint8_t _SizeX, uint8_t _SizeY, uint8_t _Rotate, uint8_t _AnimAnz, uint8_t _HighFlg)
-		: Id(_Id), Gfx(_Gfx), Posoffs(_Posoffs), SizeX(_SizeX), SizeY(_SizeY), Rotate(_Rotate), AnimAnz(_AnimAnz), HighFlg(_HighFlg)
+		: Id(_Id), Gfx(_Gfx), Posoffs(_Posoffs), SizeX(_SizeX), SizeY(_SizeY), Rotate(_Rotate), AnimAnz(_AnimAnz), HighFlg(_HighFlg), Description(nullptr)
 	{
 	}
 
@@ -45,6 +50,7 @@ public:
 	void SetTileTypeDefaults();
 	void SetTileTypeParameter(int Idx, char* name, int valueType, char* valueStr, int valueInt, float valueFloat, char* valueComment);
 	void SetTileTypeComment(int Idx, char* valueComment);
+	void CreateTileTypeObj(const STileTypeInfo& TTi); // Create TileTypeObj, given the full struct object
 	void CreateTileTypeObj(int ParentId = -1); // Create TileTypeObj, copy existing when provided ParentId
 
 	void SortById();

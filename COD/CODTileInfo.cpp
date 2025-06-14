@@ -165,13 +165,30 @@ void CODTileInfo::CreateTileTypeObj(int ParentId /*= -1*/)
 	//printf("CreateTileTypeObj(%d)\n", m_TileTypes_size);
 }
 
+void CODTileInfo::CreateTileTypeObj(const STileTypeInfo& TTi)
+{
+	if (m_TileTypes_size == m_TileTypes_sizeAllocated) // Check if memory needs to be allocated
+	{
+		// Resize memory
+		STileTypeInfo* tmp = (STileTypeInfo*)(m_TileTypes_size > 0 ? realloc(m_TileTypes, (m_TileTypes_size + 1) * sizeof(STileTypeInfo)) : malloc(1 * sizeof(STileTypeInfo)));
+
+		if (tmp)
+		{
+			++m_TileTypes_size;
+			++m_TileTypes_sizeAllocated;
+			m_TileTypes = tmp;
+		}
+	}
+	memcpy(&m_TileTypes[m_TileTypes_size - 1], &TTi, sizeof(STileTypeInfo));
+}
+
 void CODTileInfo::PrintTileTypeObjects()
 {
 	for (int i = 0; i < m_TileTypes_size; ++i)
 	{
 		const STileTypeInfo& o = m_TileTypes[i];
 		//printf(" %d. {Nummer: %d, Id: %d, Gfx: %d}\n", i, o.Nummer, o.Id, o.Gfx);
-		printf(" %d. {Id: %d, Gfx: %d, [%d,%d],R:%d,An:%d,POffs:%d,hFlg:%d} // %s\n", i, o.Id, o.Gfx, o.SizeX, o.SizeY, o.Rotate, o.AnimAnz, o.Posoffs, o.HighFlg, o.Description);
+		printf(" %d. {Id: %d, Gfx: %d, [%d,%d],R:%d,An:%d,POffs:%d,hFlg:%d} // %s\n", i, o.Id, o.Gfx, o.SizeX, o.SizeY, o.Rotate, o.AnimAnz, o.Posoffs, o.HighFlg, o.Description ? o.Description : "");
 	}
 }
 

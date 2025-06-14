@@ -38,13 +38,17 @@ void CODParser::ParseCODFile(CODFile* CodFile)
 	m_CODTileInfo = new CODTileInfo();
 
 	m_COD = new COD();
-	char* rawData = CodFile->GetRawDecCOD();
+	const char* rawData = CodFile->GetRawDecCOD();
 	//int rawSize = strlen(rawData);
 	int rawSize = 0;
 	const int rawSizeSingleChar = sizeof(rawData[0]);
 
-	for (; *(rawData + rawSize) != '\0'; ++rawSize);
-	rawSize *= rawSizeSingleChar; // in case char is not 1 byte
+	//printf("%s\n", rawData);
+	//printf("%c\n", rawData[0]);
+
+	//for (; *(rawData + rawSize) != '\0'; ++rawSize);
+	//rawSize *= rawSizeSingleChar; // in case char is not 1 byte
+	rawSize = (int)strlen(rawData);
 
 	printf("CODFile size: %i\n", rawSize);
 	printf("--------------------------------------------------\n");
@@ -117,7 +121,7 @@ void CODParser::ParseCODFile(CODFile* CodFile)
 
 				if (strlen(line_buffer) > 0 && !isEmpty) // Only process line, if its not empty
 				{
-					int res = ParseCODFileLine(line_buffer, linepos, firstcharpos);
+					int res = CodFile->GetInputType() == CODFile::EInputFileType::IFT_HCACHE ? ParseHCacheFileLine(m_CODTileInfo, line_buffer, linepos, firstcharpos) : ParseCODFileLine(line_buffer, linepos, firstcharpos);
 
 					if (res == -1)
 					{
@@ -184,7 +188,7 @@ void CODParser::ParseCODFile(CODFile* CodFile)
 	auto s0_1 = std::chrono::high_resolution_clock::now();
 	duration0 += (double)std::chrono::duration_cast<std::chrono::milliseconds>(s0_1 - start).count() / 1000;
 	//printf("Reading COD finished in %.2lfs! {d0:%.2lfs, d1:%.2lfs, d2:%.2lfs, d3:%.2lfs, dx1:%.2lfs}\n", (double)duration.count() / 1000, duration0_0 + duration0_1, duration1, duration2, duration3, durationx1);
-	printf("Reading COD finished in %.2lfs!\n", duration0);
+	printf("Reading COD finished in %.3lfs!\n", duration0);
 }
 
 int CODParser::ParseCODFileLine(const char* line, int linepos, int startcharoffset)
@@ -632,6 +636,169 @@ int CODParser::ParseCODFileLine(const char* line, int linepos, int startcharoffs
 	}
 
 	if (state == EState::SYNTAXERR || state == EState::PARSEERROR)
+	{
+		result = -1;
+		return result;
+	}
+
+	//ToDo: Return type: SetConstant, SetParam, Classbegin, ClassEnd,...
+
+	return result;
+}
+
+int CODParser::ParseHCacheFileLine(CODTileInfo* m_CODTileInfo, const char* line, int linepos, int startcharoffset)
+{
+	int result = 0; // 0 = Normal operation, -1 = Error
+
+	//size_t linelen = strlen(line);
+	int linelen = (int)strlen(line);
+
+	enum EState {
+		INITIAL, // Beginning state, or between params (spaces)
+		NUMBER, // Found character, continue finding word that is unknown type
+		COMMENT, // Ignore full comment line
+		SYNTAXERR // Beware of this state. Once reached, everything is lost!
+	};
+
+	int state = EState::INITIAL;
+	//int b1,e1,b2,e2; // begins and ends of left and right of an expression
+	int b; // begins and ends of expression
+	int paramnbr = -1, paramnbr_max = 7; // Define maximum number of params starting with 0(!) (MINUS comment = optional)
+	char strInt[11];
+	STileTypeInfo TTinfo;
+
+	// Get param by param:
+	for (int i = 0; i < linelen; ++i)
+	{
+		char c = line[i];
+		switch (state)
+		{
+		case EState::INITIAL:
+			if (paramnbr == paramnbr_max && c == ';') // Comment found, only when all params were found before
+			{
+				b = i + 1;
+				if (b > linelen)
+				{
+					printf("cmt breakup\n");
+					return -1;
+				}
+
+			//	printf("c%d", linepos);
+				char* rawCmnt = (char*)malloc((linelen - b + 1) * sizeof(char));
+				sprintf_s(rawCmnt, linelen - b + 1, "%.*s", (int)linelen - b, line + b);
+			//	printf("\\c");
+
+				ProcessLastComment(rawCmnt);
+				m_CODTileInfo->SetTileTypeComment(TTinfo.Id, m_InClass_LastComment);
+				free(rawCmnt);
+			//	printf("\\c\n");
+
+				//printf(";%s\n",rawCmnt);
+				//printf(";%s\n", line + i + 1);
+				return result;
+			}
+			else if (paramnbr < paramnbr_max && isdigit(c)) // Parameter values can only be digits
+			{
+				b = i;
+
+				state = EState::NUMBER;
+			}
+			else if (paramnbr == -1 && c == ';') // Parameter values can only be digits
+			{
+				//printf("comment line %d.%s\n", linepos, line);
+
+				state = EState::COMMENT;
+			}
+			else if (isspace(c)) // Found space
+			{
+				printf("space.%s", line);
+				// Continue searching start of word
+			}
+			else
+			{
+				// SYNTAX ERROR: Expression not finished. 
+				printf("SyntaxError: %s\n", line + i);
+				state = EState::SYNTAXERR;
+			}
+
+			break;
+		case EState::NUMBER:
+			if (isdigit(c)) // Parameter values can only be digits
+			{
+		//		printf("s%d.", linepos);
+				//e = i;
+				// Continue looking for numbers till end reached
+			}
+			else if (isspace(c)) // End of param value, looking for new one
+			{
+			//	printf("pl%d.", linepos);
+				++paramnbr;
+
+				//char* strInt = (char*)malloc((i - b + 1) * sizeof(char));
+			//	char strInt[11];
+				//sprintf_s(left + b1, e1 - b1 + 1, "%.*s", (int)i - b1, left + b1);
+			//	printf("\\pn%d",paramnbr);
+				sprintf_s(strInt, i - b + 1, "%.*s", (int)i - b, line + b);
+				int tmpInt = atoi(strInt);
+				//free(strInt);
+			//	printf("\\pe ");
+				//printf("%d ", tmpInt);
+
+				switch (paramnbr)
+				{
+				case 0:
+					TTinfo.Id = tmpInt;
+					break;
+				case 1:
+					TTinfo.Gfx = tmpInt;
+					break;
+				case 2:
+					TTinfo.SizeX = tmpInt;
+					break;
+				case 3:
+					TTinfo.SizeY = tmpInt;
+					break;
+				case 4:
+					TTinfo.Rotate = tmpInt;
+					break;
+				case 5:
+					TTinfo.AnimAnz = tmpInt;
+					break;
+				case 6:
+					TTinfo.Posoffs = tmpInt;
+					break;
+				case 7:
+					TTinfo.HighFlg = tmpInt;
+					break;
+				}
+
+				if (paramnbr == paramnbr_max)
+				{
+			//		printf("\n");
+					//char empty[] = {'\0'};
+					//empty[0] = '\0';
+					//TTinfo.Description = empty;
+					m_CODTileInfo->CreateTileTypeObj(TTinfo);
+					//printf(" %d. {Id: %d, Gfx: %d, [%d,%d],R:%d,An:%d,POffs:%d,hFlg:%d} // %s\n", linepos, TTinfo.Id, TTinfo.Gfx, TTinfo.SizeX, TTinfo.SizeY, TTinfo.Rotate, TTinfo.AnimAnz, TTinfo.Posoffs, TTinfo.HighFlg, TTinfo.Description);
+					//printf(" %d. {Id: %d, Gfx: %d, [%d,%d],R:%d,An:%d,POffs:%d,hFlg:%d} // %s\n", linepos, TTinfo.Id, TTinfo.Gfx, TTinfo.SizeX, TTinfo.SizeY, TTinfo.Rotate, TTinfo.AnimAnz, TTinfo.Posoffs, TTinfo.HighFlg, "");
+				}
+
+				//*valueInt = tmpInt;
+
+				state = EState::INITIAL;
+			}
+			else
+			{
+				// SYNTAX ERROR: Expression not finished. 
+				printf("SyntaxError: %s\n", line + i);
+				state = EState::SYNTAXERR;
+			}
+
+			break;
+		}
+	}
+
+	if (state == EState::SYNTAXERR)
 	{
 		result = -1;
 		return result;

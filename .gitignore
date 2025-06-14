@@ -412,9 +412,7 @@ figuren.cod
 figuren.txt
 haeuser.cod
 haeuser.txt
-haeuser_test.txt
-haeuser_test_class1.txt
-haeuser_test_class2.txt
+haeuser_test*.txt
 Text.cod
 Text.txt
 tilemapping.txt

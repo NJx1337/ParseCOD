@@ -23,14 +23,19 @@ int main(int argc, char** argv)
 	//COD* cod4 = new COD("Editor.cod");
 	//cod4->writeDecCOD("Editor.txt");
 
+	//CODFile* cf = new CODFile("haeuser_test_class3_hausonly.txt", CODFile::EInputFileType::IFT_TXT);
+	//CODFile* cf = new CODFile("haeuser_cache0.cache.txt", CODFile::EInputFileType::IFT_HCACHE);
+	//CODParser* codParse = new CODParser(cf);
 	//CODParser* codParse = new CODParser("haeuser.cod");
 	//CODParser* codParse = new CODParser(new CODFile("haeuser_test.txt", true));
 	//CODParser* codParse = new CODParser(new CODFile("haeuser_test_class2.txt", true));
-	CODParser* codParse = new CODParser(new CODFile("haeuser_test_class3_hausonly.txt", true));
+	//CODParser* codParse = new CODParser(new CODFile("haeuser_test_class3_hausonly.txt", true));
+	CODParser* codParse = new CODParser(new CODFile("haeuser_test_cache0.cache.txt", CODFile::EInputFileType::IFT_HCACHE));
 	COD* haeuserConf = codParse->GetCOD();
 	CODTileInfo* tileInfo = codParse->GetTileInfo();
 	//tileInfo->SortById();
-	//tileInfo->PrintTileTypeObjects();
+	//CODFile::writeHaeuserCacheFromCOD("haeuser_test_cache1.cache.txt", tileInfo);
+	tileInfo->PrintTileTypeObjects();
 	//TileMappingOld tilemap("tilemapping.txt");
 	//tilemap.PrintDifference(tileInfo);
 
