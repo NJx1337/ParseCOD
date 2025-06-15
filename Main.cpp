@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 	CODTileInfo* tileInfo = codParse->GetTileInfo();
 	//tileInfo->SortById();
 	//CODFile::writeHaeuserCacheFromCOD("haeuser_test_cache1.cache.txt", tileInfo);
-	tileInfo->PrintTileTypeObjects();
+	//tileInfo->PrintTileTypeObjects();
 	//TileMappingOld tilemap("tilemapping.txt");
 	//tilemap.PrintDifference(tileInfo);
 

@@ -33,16 +33,23 @@ I know there might be already a few other amazing tools that can do the same stu
 ### 3. Is there Linux, Mac support?
 Currently I am focussing on the core functionality and not on compatiblity. Since it the tool has no or not much dependencies, it could be easy to migrate it to other systems.
 
-### 4. Why you dont use CMake, etc?
+### 4. Why you dont use CMake, Make etc?
 Currently I am focussing on the core functionality and not on compatiblity.
 
-### 5. I want to use the entire code or parts in my own software. Are there any requirements?
+### 5. Why do you prefer using C over C++ or other new languages like C#?
+I like to be closer to machine code, thats why I prefer using C.
+Languages as C++, Rust, C# are fine as well, but I do believe they make us programmers lazy because of using a lot of predefined functions and dependencies, that will make programs heavy and harder to maintain on multiple platforms.
+
+### 6. I want to use the entire code or parts in my own software. Are there any requirements?
 Feel free to use my code, expand it, make it better, learn from it, heck you can even use it in your comercial projects if you want, it's open source. Just follow the LICENSE. ;-)
 
-### 6. Which game version are you using primarly for developement?
+### 7. Which game version are you using primarly for developement?
 I am using the Anno 1602 Version from GoG in English, planning to add all other languages (from GoG) too in future and the History Edition.
 
-### 7. Whats the goal with this project?
+### 8. Is it possible to open .GAD and .INC with this tool?
+It might be possible, since the syntax of .COD and .GAD is the same. Feel free to use this code as a base to get objects and constants from .GAD, .INC files.
+
+### 9. Whats the goal with this project?
 Make this project run on Windows 95 and VS 6.0. Just joking: ;-)
 
 My goal is to have fun for myself and also make the available to others, so people can learn from it. And a serious goal is to make it as perfect as possible in reading game files: Read everything from the game files, to have no need to manually define stuff.

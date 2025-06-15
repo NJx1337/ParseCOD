@@ -58,5 +58,6 @@ public:
 
 	inline STileTypeInfo* GetTileTypes() const { return m_TileTypes; }
 	inline int GetTileTypesSize() const { return m_TileTypes_size; }
+	STileTypeInfo& GetId(uint16_t id) const;
 };
 

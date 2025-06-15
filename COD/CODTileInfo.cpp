@@ -330,3 +330,13 @@ bool CODTileInfo::ParseMultiValSize(const char* valueStr, int* X, int* Y)
 
 	return true;
 }
+
+STileTypeInfo& CODTileInfo::GetId(uint16_t id) const
+{
+	for (size_t i = 0; i < m_TileTypes_size; i++)
+	{
+		if (m_TileTypes[i].Id == id)
+			return m_TileTypes[i];
+	}
+	return m_TileTypes[0];
+}
